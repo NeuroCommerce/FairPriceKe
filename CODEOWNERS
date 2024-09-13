@@ -1,0 +1,13 @@
+# Core team (you) owns everything by default
+*       @CollinsWanjau
+
+# Frontend team owns the frontend directory
+/frontend/       @Frontend
+
+# Machine Learning team owns the machine learning and data analysis directories
+/machine-learning/       @Machine-Learning
+/data-analysis/          @Machine-Learning
+
+# Web scraping could be owned by Machine Learning team or Core team, depending on its primary use
+/web-scraping/           @ Machine-Learning @Core-Team
+
