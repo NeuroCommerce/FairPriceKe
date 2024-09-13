@@ -11,8 +11,20 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: node:18-alpine
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - name: Cache npm dependencies
+        uses: actions/checkout@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-cache-
       - name: Web Scraping CI
         run: |
           cd web-scraping
+          npm ci
+          npm run lint
+          # npm test  # Commented out until tests are implemented
