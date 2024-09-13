@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import BaseScraper from './baseScraper.js';
 import RateLimiter from './rateLimiter.js'
 import path from 'path'
@@ -65,7 +66,6 @@ export class JumiaScraper extends BaseScraper {
 
       await this.saveCheckpoint('brandLinks.json', brandLinks);
       console.log('Brand links saved');
-
 
 
       if (brandLinks.length === 0) {
