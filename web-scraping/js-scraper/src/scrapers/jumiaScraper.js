@@ -7,7 +7,7 @@ export class JumiaScraper extends BaseScraper {
     this.url = 'https://www.jumia.co.ke/';
   }
 
-  async scrape (browser) {
+  async scrape (browser, category = 'phones-tablets') {
     let page;
     try {
       const page = await browser.newPage();
@@ -17,10 +17,11 @@ export class JumiaScraper extends BaseScraper {
       await page.goto(this.url, { waitUntil: 'networkidle0', timeout: 60000 });
 
       // Checkpoint 1: Verify homepage loaded
-      await this.verifyCheckpoint(page, 'a[href="/phones-tablets/"]', 'Homepage loaded successfully');
+      await this.verifyCheckpoint(page, `a[href="/${category}/"]', 'Homepage loaded successfully`);
 
-      // Navigate to phones and Tablets
-      await page.hover('a[href="/phones-tablets/"]');
+      // Navigate to the specified category
+      await page.click(`a[href="/${category}/"]`);
+      await page.waitForNavigation({ waitUntil: 'networkidle0' })
 
       // Checkpoint 2: Verify popup menu appeared
       await this.verifyCheckpoint(page, '.flyout', 'Popup menu appeared successfully');
