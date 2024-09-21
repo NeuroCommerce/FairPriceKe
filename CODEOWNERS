@@ -2,7 +2,7 @@
 *       @CollinsWanjau
 
 # Frontend team owns the frontend directory
-/frontend/       @Frontend
+/frontend/       @NeuroCommerce/Frontend
 
 # Machine Learning team owns the machine learning and data analysis directories
 /machine-learning/       @Machine-Learning
