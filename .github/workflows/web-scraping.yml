@@ -1,3 +1,38 @@
+# name: Web Scraping CI
+#
+# on:
+#   push:
+#     paths:
+#       - 'web-scraping/**'
+#   pull_request:
+#     paths:
+#       - 'web-scraping/**'
+#
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
+#       - name: Use Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '20'
+#       - name: Cache npm dependencies
+#         uses: actions/checkout@v4
+#         with:
+#           path: ~/.npm
+#           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+#           restore-keys: |
+#             ${{ runner.os }}-npm-cache-
+#       - name: Install dependencies
+#         run: |
+#           cd web-scraping
+#           npm ci
+#       - name: Run linter
+#         run: |
+#           cd web-scraping
+#           npm run lint
+#           # npm test  # Commented out until tests are implemented
 name: Web Scraping CI
 
 on:
