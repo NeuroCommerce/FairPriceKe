@@ -312,4 +312,3 @@ export class JumiaScraper extends BaseScraper {
   }
 }
 
-
