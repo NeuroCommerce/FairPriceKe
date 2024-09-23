@@ -78,15 +78,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -d "web-scraping" ]; then
-            cd web-scraping
-            npm ci
-          else
-            echo "web-scraping directory not found"
-            echo "Current directory contents:"
-            ls -la
-            exit 1
-          fi
+          cd web-scraping
+           npm ci
 
       - name: Run linter
         run: |
