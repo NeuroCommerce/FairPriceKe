@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Cache npm dependencies
-        uses: actions/checkout@v3
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -26,5 +26,8 @@ jobs:
         run: |
           cd web-scraping
           npm ci
+      - name: Run linter
+        run: |
+          cd web-scraping
           npm run lint
           # npm test  # Commented out until tests are implemented
