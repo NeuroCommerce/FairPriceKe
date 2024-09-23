@@ -85,6 +85,7 @@ jobs:
         run: |
           if [ -d "web-scraping" ]; then
             cd web-scraping/js-scraper
+
             npm run lint
           else
             echo "web-scraping directory not found"
