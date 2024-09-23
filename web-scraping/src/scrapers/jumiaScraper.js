@@ -1,8 +1,10 @@
 import BaseScraper from './baseScraper.js';
+import RateLimiter from './rateLimiter.js'
+import path from 'path'
 
 export class JumiaScraper extends BaseScraper {
   /* url: 'https://www.jumia.co.ke/' */
-  constructor () {
+  constructor (userRequestLimit) {
     super();
     this.url = 'https://www.jumia.co.ke/';
     this.userAgents = [
@@ -12,8 +14,15 @@ export class JumiaScraper extends BaseScraper {
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.',
       'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:129.0) Gecko/20100101 Firefox/129.'
     ]
+    const maxAllowedRequests = 200
+    this.rateLimiter = new RateLimiter(maxAllowedRequests, userRequestLimit)
   }
-
+  async makeRequest(url, options = {}) {
+	  await this.rateLimiter.waitForSlot()
+	  console.log(`Making request to ${url}`)
+	  // Simulating a request
+	  await this.delay(500 + Math.random() * 500)
+  }
   // Selecting a random agent
   getRandomUserAgent() {
     return this.userAgents[Math.floor(Math.random() * this.userAgents.length)]
@@ -40,6 +49,7 @@ export class JumiaScraper extends BaseScraper {
     await this.setRandomUserAgent(page)
     console.log(`Navigating to ${this.url}...`);
     try {
+      await this.makeRequest(this.url)
       //  ensure pages are fully loaded before scraping.
       await page.goto(this.url, { waitUntil: 'networkidle0', timeout: 60000 });
 
@@ -74,8 +84,13 @@ export class JumiaScraper extends BaseScraper {
         const brandData = await this.scrapeBrandPage(browser, brand.url)
         allProductData.push(...brandData)
 
+	// Save checkpoint after each brand is scraped
+	const checkpointFilename = path.join('checkpoints', `${brand.name.replace(/\s+/g, '_').toLowerCase()}_products.json`)
+	await this.saveCheckpoint(checkpointFilename, brandData)
+	console.log(`Saved checkpoint for ${brand.name}`)
+	
         // Add a delay between brand scrapes
-        await this.delay(3000 + Math.random() * 3000) // Random between 3-6 seconds
+        await this.delay(3000 + Math.random() * 3000) // Random between 3-6 seconds 
       }
 
       await this.saveCheckpoint('allProductData.json', allProductData)
@@ -121,12 +136,13 @@ export class JumiaScraper extends BaseScraper {
     // Set a random user agent for each brand
     await this.setRandomUserAgent(page)
     console.log(`navigating to ${url}...`)
+    await this.makeRequest(this.url)
     await page.goto(url, { waitUntil: 'networkidle0'})
 
-    await this.delay(2000 + Math.random() * 2000) // Random between 2-4 seconds
+    /* await this.delay(2000 + Math.random() * 2000)  */// Random between 2-4 seconds
     let scrapedData = []
 
-    async function scrapeCurrentPage() {
+    const scrapeCurrentPage = async () => {
       console.log('Waiting for the section containing the articles')
       try {
        await page.waitForSelector('section.card.-fh') 
@@ -163,10 +179,14 @@ export class JumiaScraper extends BaseScraper {
       }
 
       for (let link of productsLinks) {
-        let currentPageData = await this.scrapeProductPage(browser, link)
-        // Add a delay between product scrapes
-        await this.delay(500 + Math.random() * 500); 
-        scrapedData.push(currentPageData)
+        try {
+         let currentPageData = await this.scrapeProductPage(browser, link)
+         // Add a delay between product scrapes
+          /* await this.delay(500 + Math.random() * 500); */ 
+          scrapedData.push(currentPageData) 
+        } catch (error){
+          console.error(`Error scraping ${link}:`, error)
+        }
       }
 
       // Check for next page
@@ -190,6 +210,7 @@ export class JumiaScraper extends BaseScraper {
 
     }
     await scrapeCurrentPage()
+    await page.close()  // Close the page after scraping to prevent memory leaks
     return scrapedData
 
 
@@ -199,22 +220,94 @@ export class JumiaScraper extends BaseScraper {
     let newPage = await browser.newPage()
     // Set  a random user agent for each product page
     await this.setRandomUserAgent(newPage)
-    await newPage.goto(link)
-    await this.delay(1000 + Math.random() * 1000)
+    console.log(`Navigating to product page: ${url}`);
+    
+    
     try {
+      await this.makeRequest(this.url)
+      await newPage.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 })
+      await this.delay(2000 + Math.random() * 2000)
+
+      // Wait for the product name to be visible
+      await newPage.waitForSelector('h1.-fs20.-pts.-pbxs', {timeout: 10000})
       const dataObj = await newPage.evaluate(() => {
+        const getTextContent = (selector) => {
+          // Simplifies text extraction and handle cases where element might not exist
+          const element = document.querySelector(selector)
+          return element ? element.textContent.trim() : 'N/A'
+        }
+
+        const getAllProductImages = () => {
+          const imageLinks = document.querySelectorAll('#imgs a.itm')
+          return Array.from(imageLinks).map(link => {
+            const img = link.querySelector('img')
+            return {
+              largeImageUrl: link.href,
+              thumbnailUrl: img.dataset.src || img.src,
+              alt: img.alt
+            }
+          })
+        }
+
+        const productImages = getAllProductImages()
         return {
-          /* dataObj.productName = await newPage.$eval('h1.-fs20 -pts -pbxs', el => el.textContent.trim()) */
-          productName: document.querySelector('h1.-fs20 -pts -pbxs')?.textContent.trim() || 'N/A'
-        } 
+          productName: getTextContent('h1.-fs20.-pts.-pbxs'),
+          price: getTextContent('span.-b.-ubpt.-tal.-fs24'),
+          oldPrice: getTextContent('span.-tal.-gy5.-lthr.-fs16'),
+          discount: getTextContent('span.bdg._dsct._dyn.-mls'),
+          rating: getTextContent('div.stars._m._al'),
+          verifiedRatings: getTextContent('a.-plxs._more'),
+          /* imageUrl: getImageSrc('a.itm img.-fw.-fh') */
+          images: productImages,
+          mainImageUrl: productImages.length > 0 ? productImages[0].thumbnailUrl : ''
+        }
       })
-      console.log('Scraped product data:', dataObj)
+      console.log('Scraped product data:', JSON.stringify(dataObj, null, 2))
+
+      // Debugging information
+      if (dataObj.productName === 'N/A') console.log('Warning: Unable to scrape product name.')
+      if (dataObj.price === 'N/A') console.log('Warning: Unable to scrape price.')
+      if (dataObj.oldPrice === 'N/A') console.log('Warning: Unable to scrape old price.')
+      if (dataObj.discount === 'N/A') console.log('Warning: Unable to scrape discount.')
+      if (dataObj.rating === 'N/A') console.log('Warning: Unable to scrape ratings.')
+      if (dataObj.verifiedRatings === 'N/A') console.log('Warning: Unable to scrape verifiedRatings.')
+      if (dataObj.imageUrl === 'N/A') console.log('Warning: Unable to scrape image url.')
+
       return dataObj
     } catch (error) {
-      console.log(`Error scraping product ${url}: ${e.message}`)
+      console.log(`Error scraping product ${url}: ${error.message}`)
+      if (error.name === `Timeout`) {
+        console.log('Attempting to retrieve partial data...')
+        try {
+          const partialData = await newPage.evaluate(() => {
+            const getTextContent = (selector) => {
+              // Simplifies text extraction and handle cases where element might not exist
+               const element = document.querySelector(selector)
+               return element ? element.textContent.trim() : 'N/A'
+            }
+            return {
+              productName: getTextContent('h1.-fs20.-pts.-pbxs'),
+              price: getTextContent('span.-b.-ltr.-tal.-fs24'),
+              oldPrice: getTextContent('span.-tal.-gy5.-lthr.-fs16'),
+              discount: getTextContent('span.bdg._dsct._dyn.-mls'),
+              rating: getTextContent('div.stars._m._al'),
+              verifiedRatings: getTextContent('a.-plxs._more'),
+              imageUrl: getImageSrc('img.-fw.-fw')
+              // Add more fields as needed
+            }
+          })
+          console.log('Partial data retrieved:', JSON.stringify(partialData, null, 2))
+          return partialData
+        } catch (innerError) {
+          console.error('Failed to retrieve partial data:', innerError)
+        }
+      }
+      console.log('Page content at time of error:')
+      console.log(await newPage.content())
       return {}
     } finally {
       await newPage.close()
+      
     }
   }
 }
