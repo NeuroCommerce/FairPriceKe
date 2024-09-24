@@ -1,5 +1,0 @@
-{
-  "watch": ["src"],
-  "ignore": ["src/brandLinks.json"],
-  "exec": "node src/index.js"
-}

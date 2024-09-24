@@ -1,3 +1,0 @@
-import BaseScraper from './baseScraper';
-
-
