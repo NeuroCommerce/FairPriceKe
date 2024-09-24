@@ -1,12 +1,3 @@
-# name: Web Scraping CI
-#
-# on:
-#   push:
-#     paths:
-#       - 'web-scraping/**'
-#   pull_request:
-#     paths:
-#       - 'web-scraping/**'
 name: Web Scraping CI
 
 on:
@@ -59,7 +50,6 @@ jobs:
         run: |
           if [ -d "web-scraping" ]; then
             cd web-scraping/js-scraper
-
             npm run lint
           else
             echo "web-scraping directory not found"
@@ -80,4 +70,3 @@ jobs:
       #       exit 1
       #     fi
       # Commented out until tests are implemented
-
