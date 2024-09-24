@@ -96,6 +96,7 @@ export class JumiaScraper extends BaseScraper {
       console.log(`Scraped ${allProductData.length} products in total.`);
 
       return allProductData;
+
     } catch (error) {
       console.error('An error occurred during scraping:', error);
     } finally {
@@ -302,3 +303,4 @@ export class JumiaScraper extends BaseScraper {
     }
   }
 }
+
