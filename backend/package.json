@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -8,6 +9,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
+    "setup-db": "node src/schema.js",
     "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,9 +17,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "pg": "^8.12.0"
+    "pg": "^8.12.0",
+    "pg-promise": "^11.9.1"
   },
   "devDependencies": {
     "jest": "^29.7.0",
