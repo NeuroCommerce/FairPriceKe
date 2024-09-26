@@ -1,9 +1,11 @@
 // The main application file where you set up your Express app.
 
-const express = require('express');
+import express from 'express';
+
+import db from './config/database.js'
+
 const app = express();
 const port = process.env.PORT || 3000;
-const db = require('./config/database')
 
 app.use(express.json());
 
