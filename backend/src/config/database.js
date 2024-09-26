@@ -1,8 +1,13 @@
 // Database configuration (connection to PostgreSQL).
-const { Pool } = require('pg')
-require('dotenv').config()
+import pgPromise from 'pg-promise'
+import dotenv from 'dotenv'
 
-const pool = new Pool({
+// Load environment variables from .env files
+dotenv.config()
+
+const pgp = pgPromise()	// Initialize pg-promise
+
+/* const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
@@ -12,4 +17,16 @@ const pool = new Pool({
 
 module.exports = {
   query: (text, params) => pool.query(text, params)
+} */
+
+const connection = {
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 }
+
+const db = pgp(connection)
+
+export default db
