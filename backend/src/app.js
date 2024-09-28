@@ -1,8 +1,8 @@
 // The main application file where you set up your Express app.
 
 import express from 'express';
-
 import db from './config/database.js'
+import userRoutes from './routes/userRoutes'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,6 +12,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to FairPriceKe API' });
 });
+app.use('/api/users', userRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
