@@ -1,5 +1,7 @@
 import BaseScraper from './baseScraper.js';
 import RateLimiter from './rateLimiter.js';
+import { checkProductStockString } from './stockChecker.js'
+import { getAllProductImages, getSpecification, getTextContent } from './scraperHelpers.js'
 import path from 'path';
 
 export class JumiaScraper extends BaseScraper {
@@ -85,14 +87,14 @@ export class JumiaScraper extends BaseScraper {
 
         // Save checkpoint after each brand is scraped
         const checkpointFilename = path.join('checkpoints', `${brand.name.replace(/\s+/g, '_').toLowerCase()}_products.json`);
-        await this.saveCheckpoint(checkpointFilename, brandData);
-        console.log(`Saved checkpoint for ${brand.name}`);
+        await this.saveTimeSeriesCheckpoint(checkpointFilename, brandData);
+        console.log(`Saved time series checkpoint for ${brand.name}`);
 
         // Add a delay between brand scrapes
         await this.delay(3000 + Math.random() * 3000); // Random between 3-6 seconds
       }
 
-      await this.saveCheckpoint('allProductData.json', allProductData);
+      await this.saveTimeSeriesCheckpoint('allProductData.json', allProductData);
       console.log(`Scraped ${allProductData.length} products in total.`);
 
       return allProductData;
@@ -220,26 +222,22 @@ export class JumiaScraper extends BaseScraper {
 
       // Wait for the product name to be visible
       await newPage.waitForSelector('h1.-fs20.-pts.-pbxs', { timeout: 10000 });
-      const dataObj = await newPage.evaluate(() => {
-        const getTextContent = (selector) => {
-          // Simplifies text extraction and handle cases where element might not exist
-          const element = document.querySelector(selector);
-          return element ? element.textContent.trim() : 'N/A';
-        };
-
-        const getAllProductImages = () => {
-          const imageLinks = document.querySelectorAll('#imgs a.itm');
-          return Array.from(imageLinks).map(link => {
-            const img = link.querySelector('img');
-            return {
-              largeImageUrl: link.href,
-              thumbnailUrl: img.dataset.src || img.src,
-              alt: img.alt
-            };
-          });
-        };
-
-        const productImages = getAllProductImages();
+      // helpersStr is evaluated to make all helper functions available.
+      // checkProductStockStr is evaluated to get the checkProductStock function.
+      const dataObj = await newPage.evaluate((
+	      checkProductStockStr,
+	      getTextContentStr,
+	      getAllProductImagesStr,
+	      getSpecificationStr
+      ) => {
+	// Evaluate the helpers string to get the functions
+        /* eval(helpersStr) */
+        const checkProductStock = eval(`(${checkProductStockStr})`)
+	const getTextContent = eval(`(${getTextContentStr})`)
+        const getAllProductImages = eval(`(${getAllProductImagesStr})`)
+	const getSpecification = eval(`(${getSpecificationStr})`)
+	const stockInfo = checkProductStock()
+	const productImages = getAllProductImages()
         return {
           productName: getTextContent('h1.-fs20.-pts.-pbxs'),
           price: getTextContent('span.-b.-ubpt.-tal.-fs24'),
@@ -247,11 +245,20 @@ export class JumiaScraper extends BaseScraper {
           discount: getTextContent('span.bdg._dsct._dyn.-mls'),
           rating: getTextContent('div.stars._m._al'),
           verifiedRatings: getTextContent('a.-plxs._more'),
+          stock: stockInfo,
           /* imageUrl: getImageSrc('a.itm img.-fw.-fh') */
           images: productImages,
-          mainImageUrl: productImages.length > 0 ? productImages[0].thumbnailUrl : ''
+          mainImageUrl: productImages.length > 0 ? productImages[0].thumbnailUrl : '',
+	  specifications: getSpecification()
         };
-      });
+      },
+	checkProductStockString,
+	getTextContent.toString(),
+	getAllProductImages.toString(),
+	getSpecification.toString()
+      );
+      // Add timestamp to each product
+      dataObj.timestamp = new Date().toISOString()
       console.log('Scraped product data:', JSON.stringify(dataObj, null, 2));
 
       // Debugging information
@@ -281,11 +288,12 @@ export class JumiaScraper extends BaseScraper {
               oldPrice: getTextContent('span.-tal.-gy5.-lthr.-fs16'),
               discount: getTextContent('span.bdg._dsct._dyn.-mls'),
               rating: getTextContent('div.stars._m._al'),
-              verifiedRatings: getTextContent('a.-plxs._more')
+              verifiedRatings: getTextContent('a.-plxs._more'),
               /* imageUrl: getImageSrc('img.-fw.-fw') */
               // Add more fields as needed
               // images: productImages,
-              // mainImageUrl: productImages.length > 0 ? productImages[0].thumbnailUrl : ''
+              // mainImageUrl: productImages.length > 0 ? productImages[0].thumbnailUrl : '',
+	      /* specifications: getSpecification() */
             };
           });
           console.log('Partial data retrieved:', JSON.stringify(partialData, null, 2));
