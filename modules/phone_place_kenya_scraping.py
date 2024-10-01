@@ -137,14 +137,14 @@ if __name__ == "__main__":
                    "oppo", "oneplus", "realme", "tecno", "vivo", "xiaomi"]
     
     # Loop through the phone types and scrape data
-    for phone in phone_types:
+    for phone in phone_types[7]:
         scraper.scrape_phones_data(phone)
 
     # Reorder the columns and get the final DataFrame
     final_df = scraper.reorder_columns()
 
     # Save the DataFrame to CSV
-    scraper.save_data_to_csv(final_df, '../data/scraped_phones_with_datetime.csv')
+    scraper.save_data_to_csv(final_df, r'..\data\Phone Place Kenya Scraping\scraped_phones_with_datetime.csv')
 
     # Close the browser after scraping
     scraper.close_driver()
