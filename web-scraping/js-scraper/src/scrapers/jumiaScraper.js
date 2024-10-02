@@ -2,6 +2,7 @@ import BaseScraper from './baseScraper.js';
 import RateLimiter from './rateLimiter.js';
 import { checkProductStockString } from './stockChecker.js'
 import { getAllProductImages, getSpecification, getTextContent } from './scraperHelpers.js'
+import scrapeCustomerFeedback, { scrapeCustomerFeedbackString } from './customerFeedbackScraper.js'
 import path from 'path';
 
 export class JumiaScraper extends BaseScraper {
@@ -257,6 +258,22 @@ export class JumiaScraper extends BaseScraper {
 	getAllProductImages.toString(),
 	getSpecification.toString()
       );
+
+      // Scrape customer feedback
+      try {
+	      const customerFeedback = await scrapeCustomerFeedback(newPage)
+	      if (customerFeedback !== null && customerFeedback !== undefined) {
+		dataObj.customerFeedback = customerFeedback
+	      } else {
+		      console.log('Customer feedback scraping returned null or undefined')
+		      dataObj.customerFeedback = null
+	      }
+      }  catch (error) {
+	      console.error('Error scraping customer feedback:', error)
+	      dataObj.customerFeedback = null
+      }
+      
+
       // Add timestamp to each product
       dataObj.timestamp = new Date().toISOString()
       console.log('Scraped product data:', JSON.stringify(dataObj, null, 2));
