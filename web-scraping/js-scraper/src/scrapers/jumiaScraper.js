@@ -3,7 +3,7 @@ import RateLimiter from './rateLimiter.js';
 import { checkProductStockString } from './stockChecker.js'
 import { getAllProductImages, getSpecification, getTextContent } from './scraperHelpers.js'
 import scrapeCustomerFeedback, { scrapeCustomerFeedbackString } from './customerFeedbackScraper.js'
-import path from 'path';
+/* import path from 'path'; */
 
 export class JumiaScraper extends BaseScraper {
   /* url: 'https://www.jumia.co.ke/' */
@@ -87,15 +87,15 @@ export class JumiaScraper extends BaseScraper {
         allProductData.push(...brandData);
 
         // Save checkpoint after each brand is scraped
-        const checkpointFilename = path.join('checkpoints', `${brand.name.replace(/\s+/g, '_').toLowerCase()}_products.json`);
-        await this.saveTimeSeriesCheckpoint(checkpointFilename, brandData);
+        /* const checkpointFilename = path.join('checkpoints', `${brand.name.replace(/\s+/g, '_').toLowerCase()}_products.json`); */
+        await this.saveTimeSeriesCheckpoint(brand.name, brandData);
         console.log(`Saved time series checkpoint for ${brand.name}`);
 
         // Add a delay between brand scrapes
         await this.delay(3000 + Math.random() * 3000); // Random between 3-6 seconds
       }
 
-      await this.saveTimeSeriesCheckpoint('allProductData.json', allProductData);
+      await this.saveTimeSeriesCheckpoint('all_brands', allProductData);
       console.log(`Scraped ${allProductData.length} products in total.`);
 
       return allProductData;
