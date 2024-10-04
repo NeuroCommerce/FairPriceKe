@@ -2,7 +2,7 @@
 
 import express from 'express';
 import db from './config/database.js'
-import userRoutes from './routes/userRoutes'
+import userRoutes from './routes/userRoutes.js'
 
 const app = express();
 const port = process.env.PORT || 3000;
