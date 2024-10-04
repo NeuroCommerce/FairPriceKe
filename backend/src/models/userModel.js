@@ -1,4 +1,4 @@
-import db from '.config/database.js'
+import db from '../config/database.js'
 import bcrypt from 'bcrypt'
 
 export default class User {
