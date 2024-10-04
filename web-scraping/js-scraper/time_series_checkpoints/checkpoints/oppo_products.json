@@ -1,0 +1,1321 @@
+[
+  {
+    "productName": "Oppo A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)",
+    "price": "KSh 19,794",
+    "oldPrice": "KSh 22,999",
+    "discount": "14%",
+    "rating": "4.4 out of 5",
+    "verifiedRatings": "(40 verified ratings)",
+    "stock": {
+      "inStock": true,
+      "stockStatus": "6 items left",
+      "unitsLeft": 6
+    },
+    "images": [
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/7356581/1.jpg?6675",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/1.jpg?6675",
+        "alt": "product_image_name-Oppo-A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)-1"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/7356581/2.jpg?6675",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/2.jpg?6675",
+        "alt": "product_image_name-Oppo-A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)-2"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/7356581/3.jpg?6675",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/3.jpg?6675",
+        "alt": "product_image_name-Oppo-A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)-3"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/7356581/4.jpg?6675",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/4.jpg?6675",
+        "alt": "product_image_name-Oppo-A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)-4"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/7356581/5.jpg?6675",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/5.jpg?6675",
+        "alt": "product_image_name-Oppo-A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)-5"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/02/7356581/6.jpg?6675",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/6.jpg?6675",
+        "alt": "product_image_name-Oppo-A38,6.56\",4GB RAM+128GB ROM,50MP,5000mAh (Dual Sim) - Glowing Black, (2YRs WRTY)-6"
+      }
+    ],
+    "mainImageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/02/7356581/1.jpg?6675",
+    "specifications": {
+      "Discover the details": {},
+      "": {},
+      "Technical Specification": {
+        "Size and Weight": true,
+        "Height": "163.74mm",
+        "Width": "75.03mm",
+        "Thickness": "8.16mm",
+        "Weight": "190g"
+      },
+      "Storage": {
+        "RAM": "4GB",
+        "ROM": "128GB",
+        "RAM Type": "LPDDR4x @ 1800MHz 2×16bit",
+        "ROM Specifications": "EMMC5.1",
+        "Phone Storage Card": "Supported",
+        "USB OTG": "Supported"
+      },
+      "Display": {
+        "Size": "6.56\"",
+        "Screen Ratio": "89.80%",
+        "Resolution": "HD+ (1612x720)",
+        "Refresh Rate": "90/60Hz",
+        "Touch Sampling Rate": "90Hz",
+        "Colour Gamut": "Vivid mode",
+        "Color Depth": "16.7 million colors",
+        "Brightness": "Max in direct sunlight",
+        "Panel": "LCD"
+      },
+      "CameraRear": {
+        "Main camera": "50MP; f/1.8; FOV 75.5°; 5P lens; AF supported",
+        "Mono camera": "2MP; f/2.4; FOV 89.1°; 3P lens; fixed-focus",
+        "Front": "5MP; f/2.2; FOV 76.8°; 3P lens; FF supported"
+      },
+      "Shooting Mode": {
+        "Rear": "Night, Video, Photo, Portrait, Time-lapse, PRO, PANO, Sticker, and Google Lens",
+        "Front": "Video, Photo, Portrait, Time-lapse, PANO, and Sticker"
+      },
+      "VideoRear": {
+        "Supported": "1080P/720P@30fps;",
+        "Default": "1080P@30fps"
+      },
+      "Front": {
+        "Supported": "1080P/720P@30fps;",
+        "Default": "720P@30fps"
+      },
+      "Chips": {
+        "CPU": "MediaTek Helio G85",
+        "CPU Speed Cores": "8 cores, up to 2.0GHz",
+        "GPU": "Mali G52 MC2 @1000MHz"
+      },
+      "Battery": {
+        "Typical value": "5000mAh/19.55Wh",
+        "Rated value": "4880mAh/19.09Wh",
+        "Fast Charge": "VOOC, 33W SUPERVOOCTM, and PD (9V/1.5A)"
+      },
+      "Biometrics": {
+        "Fingerprint": "Supported",
+        "Facial Recognition": "Supported"
+      },
+      "Sensors": {
+        "Geomagnetic sensor": true,
+        "Light sensor": true,
+        "Optical proximity sensor": true,
+        "Accelerometer": true,
+        "Step counter": true
+      },
+      "Cellular Network": {
+        "SIM 2": "Supported",
+        "SIM Card Type": "Nano-SIM card"
+      },
+      "Connectivity": {
+        "WLAN": true,
+        "Wi-Fi 5 (802.11ac), 802.11a/b/g/n/;": true,
+        "WLAN 2.4G/WLAN 5G;": true,
+        "WLAN Display; WLAN tethering; 1x1SOSO; Wi-Fi 5GHz 80MHz": true,
+        "Bluetooth® Version": "Bluetooth® 5.3, Bluetooth® Low Energy",
+        "Bluetooth® Audio Codec": "SBC, AAC, aptX HD, and LDAC",
+        "USB Interface": "USB Type-C",
+        "Earphone Jack": "3.5mm",
+        "NFC": "Supported"
+      },
+      "Operating System": {
+        "ColorOS 13.1": true
+      },
+      "Location Technology": {
+        "GNSS": "Beidou",
+        "Others": "Assisted GPS (A-GPS); WLAN and cellular network positioning",
+        "Maps": "Google Maps and other third-party map apps"
+      },
+      "In the Box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Key Features": {
+        "Size: 6.56\"": true,
+        "RAM: 4GB": true,
+        "ROM: 128GB": true,
+        "Main camera: 50MP; f/1.8; FOV 75.5°; 5P lens; AF supported": true,
+        "Fingerprint: Supported": true,
+        "5000mAh/19.55Wh": true
+      },
+      "What’s in the box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Specifications": {
+        "SKU": "OP896MP1P5ZCANAFAMZ",
+        "Model": "CPH2579",
+        "Weight (kg)": "0.1",
+        "Main Material": "-",
+        "Shop Type": "Jumia Mall",
+        "Warranty Address": "2 Years (Nairobi Oppo Service Centre)",
+        "Warranty Type": "Service Center - Nairobi"
+      }
+    },
+    "customerFeedback": {
+      "overallRating": 4.4,
+      "totalRatings": 40,
+      "ratingBreakdown": {
+        "1": 2,
+        "2": 0,
+        "3": 2,
+        "4": 12,
+        "5": 24
+      },
+      "reviews": [
+        {
+          "rating": 4,
+          "title": "9.5/10",
+          "content": "Good ????",
+          "date": "01-10-2024",
+          "author": "Mercy",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "I like it",
+          "content": "Matches description",
+          "date": "10-09-2024",
+          "author": "Elias",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "I like it",
+          "content": "The product is appealing in appearance.",
+          "date": "05-08-2024",
+          "author": "Alii",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "9.5/10",
+          "content": "Good ????",
+          "date": "01-10-2024",
+          "author": "Mercy",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "I like it",
+          "content": "Matches description",
+          "date": "10-09-2024",
+          "author": "Elias",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "I like it",
+          "content": "The product is appealing in appearance.",
+          "date": "05-08-2024",
+          "author": "Alii",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "The phone is good",
+          "content": "It's worth",
+          "date": "15-07-2024",
+          "author": "Quinter",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Oppo",
+          "content": "Efficient",
+          "date": "15-07-2024",
+          "author": "Lydia",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "14",
+          "content": "Perfect working but next time include oppo earphone in the box.",
+          "date": "07-06-2024",
+          "author": "VICTOR",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "I love it",
+          "content": "Works perfectly well",
+          "date": "05-06-2024",
+          "author": "INNOCENT",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Oppo A38",
+          "content": "Amazing product!",
+          "date": "31-05-2024",
+          "author": "STEVEN",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "My mum loved it",
+          "content": "Excellent product as advertised.",
+          "date": "23-05-2024",
+          "author": "Gitau",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "everything",
+          "content": "Amazing ain't complaining at all its working so perfeto",
+          "date": "16-05-2024",
+          "author": "Ann",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "excellent",
+          "content": "It was perfect",
+          "date": "09-04-2024",
+          "author": "Kelvin",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "Quality",
+          "content": "Nice phone ...",
+          "date": "09-04-2024",
+          "author": "William",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "worth it",
+          "content": "Can't complain",
+          "date": "02-04-2024",
+          "author": "254",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "The duo camera set up",
+          "content": "Amazing camera and the finishing too is also great",
+          "date": "14-03-2024",
+          "author": "VICTOR MAINA",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "camera",
+          "content": "doesn't meet the pixels indicated",
+          "date": "04-03-2024",
+          "author": "njau",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "so far so good.",
+          "content": "Screen fingerprint sensor maybe.",
+          "date": "26-02-2024",
+          "author": "RICHARD",
+          "verifiedPurchase": true
+        }
+      ],
+      "seeAllUrl": "https://www.jumia.co.ke/catalog/productratingsreviews/sku/OP896MP1P5ZCANAFAMZ/"
+    },
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "productName": "Oppo A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)",
+    "price": "KSh 26,598",
+    "oldPrice": "KSh 29,999",
+    "discount": "11%",
+    "rating": "4.3 out of 5",
+    "verifiedRatings": "(20 verified ratings)",
+    "stock": {
+      "inStock": true,
+      "stockStatus": "3 units left",
+      "unitsLeft": 3
+    },
+    "images": [
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/1.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/1.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-1"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/2.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/2.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-2"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/3.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/3.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-3"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/4.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/4.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-4"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/5.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/5.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-5"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/6.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/6.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-6"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/10/8136581/7.jpg?6509",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/7.jpg?6509",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, Dual Stereo Speakers (Dual Sim)- Dazzling Green, (2YRs WRTY)-7"
+      }
+    ],
+    "mainImageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/10/8136581/1.jpg?6509",
+    "specifications": {
+      "": {},
+      "Technical Specifications": {},
+      "Size and WeightHeight:16.56cmWidth:7.59cmThickness:0.79cmWeight:192g": {},
+      "StorageRAM:8GBROM:128GBRAM Type:LPDDR4X@1800MHz, dual 16-bit channelsUSB OTG:Supported": {},
+      "DisplaySize:17.06cmScreen Ratio:91.40%Resolution: FHD+(2400×1080)Touch Sampling Rate: 180HzColour Gamut:Vivid mode: 100% DCI-P3Gentle mode: 100% sRGBColor Depth:16.7 million colors (8-bit)Pixel Density:391PPIBrightness:Typical: 550nits,Max in direct sunlight: 680nitsPanel:LCD (LTPS)": {},
+      "CameraRearMain camera: 50MP; f/1.8; FOV 75.5°; 5P lens; AF supportedMono camera: 2MP; f/2.4; FOV 89.1°; 3P lens; FF": {},
+      "Front8MP; f/2.0; FOV 80°; 4P lens; FF": {},
+      "Shooting Mode": {},
+      "Rear: Night, Video, Photo, Portrait, Time-lapse, PRO, PANO, Sticker, and Google LensFront: Video, Photo, Portrait, Time-lapse, PANO, and Sticker": {},
+      "VideoRear:Supported: 1080P/720P@30fps;Default: 1080P@30fpsFront: Supported: 1080P/720P@30fps; Default: 720P@30fps": {},
+      "ChipsCPU:MediaTek Helio G85CPU Speed Cores: 8 cores, up to 2.0GHzGPU: Mali G52 MC2 @1000MHz": {},
+      "BatteryTypical value: 5000mAh/19.55WhRated value: 4880mAh/19.09WhFast Charge:SUPERVOOCTM 33W, VOOC": {},
+      "BiometricsFingerprint:SupportedFacial Recognition: Supported": {},
+      "SensorsGeomagnetic sensorLight sensorProximity sensorAccelerometerGravity sensorStep counter": {},
+      "Cellular NetworkSIM 2: SupportedSIM Card Type: Nano-SIM card": {},
+      "ConnectivityWLANWi-Fi 5 (802.11ac), 802.11a/b/g/n;WLAN 2.4G/WLAN 5G;Supports WLAN Display; WLAN sharingBluetooth® Version: Bluetooth® 5.3, Bluetooth® Low EnergyBluetooth® Audio Codec:SBC, AAC, aptX HD, and LDACUSB Interface: USB Type-CEarphone Jack: 3.5mmCell Broadcast Service (CBS): Supported": {},
+      "Operating SystemColorOS 13.1": {},
+      "Location TechnologyGNSS:Beidou: B11; GPS: L1; GLONASS: G1; Galileo: E1; QZSS: L1Others:Assisted GPS (A-GPS); WLAN and cellular network positioningMaps:Google Maps and other third-party map apps": {},
+      "In the Box": {},
+      "Phone x 1Charger x 1USB Data Cable x 1SIM Ejector Tool x 1Quick Guide x 1Safety Guide x 1Protective Case x 1": {},
+      "Key Features": {
+        "RAM:8GB": true,
+        "ROM:128GB": true,
+        "CPU:MediaTek Helio G85": true,
+        "Main camera: 50MP": true
+      },
+      "What’s in the box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Specifications": {
+        "SKU": "OP896MP1TZ4D6NAFAMZ",
+        "Weight (kg)": "0.1",
+        "Warranty Address": "2 Years (Nairobi Oppo Service Centre)"
+      }
+    },
+    "customerFeedback": {
+      "overallRating": 4.3,
+      "totalRatings": 20,
+      "ratingBreakdown": {
+        "1": 2,
+        "2": 1,
+        "3": 0,
+        "4": 4,
+        "5": 13
+      },
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "value for money",
+          "content": "Good quality, the phone is fast enough, comes with an ultra fast charger, the camera is okay, it's light and easy to carry, comes with a good transparent cover case,",
+          "date": "04-06-2024",
+          "author": "Jeff",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "loving my A58",
+          "content": "A few weeks using it and no disappointment at all. It's a genuine product",
+          "date": "09-05-2024",
+          "author": "Simon",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "super",
+          "content": "Price good quality ????",
+          "date": "06-05-2024",
+          "author": "Dolinki",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "value for money",
+          "content": "Good quality, the phone is fast enough, comes with an ultra fast charger, the camera is okay, it's light and easy to carry, comes with a good transparent cover case,",
+          "date": "04-06-2024",
+          "author": "Jeff",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "loving my A58",
+          "content": "A few weeks using it and no disappointment at all. It's a genuine product",
+          "date": "09-05-2024",
+          "author": "Simon",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "super",
+          "content": "Price good quality ????",
+          "date": "06-05-2024",
+          "author": "Dolinki",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "best ever",
+          "content": "Works  and represents oppop",
+          "date": "17-04-2024",
+          "author": "Cedric",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Camera, Double Stereo speaker. expandable ram",
+          "content": "Camera, Double Stereo speaker. expandable ram",
+          "date": "07-03-2024",
+          "author": "Stephen",
+          "verifiedPurchase": true
+        }
+      ],
+      "seeAllUrl": "https://www.jumia.co.ke/catalog/productratingsreviews/sku/OP896MP1TZ4D6NAFAMZ/"
+    },
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "productName": "Oppo A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, (Dual Sim)- Glowing Black, (2YRs WRTY)",
+    "price": "KSh 26,598",
+    "oldPrice": "KSh 29,999",
+    "discount": "11%",
+    "rating": "4.5 out of 5",
+    "verifiedRatings": "(21 verified ratings)",
+    "stock": {
+      "inStock": true,
+      "stockStatus": "2 units left",
+      "unitsLeft": 2
+    },
+    "images": [
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/87/0016581/1.jpg?6249",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/0016581/1.jpg?6249",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, (Dual Sim)- Glowing Black, (2YRs WRTY)-1"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/87/0016581/2.jpg?6317",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/0016581/2.jpg?6317",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, (Dual Sim)- Glowing Black, (2YRs WRTY)-2"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/87/0016581/3.jpg?6317",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/0016581/3.jpg?6317",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, (Dual Sim)- Glowing Black, (2YRs WRTY)-3"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/87/0016581/4.jpg?6317",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/0016581/4.jpg?6317",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, (Dual Sim)- Glowing Black, (2YRs WRTY)-4"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/87/0016581/5.jpg?6317",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/0016581/5.jpg?6317",
+        "alt": "product_image_name-Oppo-A58, 6.72'',50MP, 8GB+128GB, 4G, 5000mAh, (Dual Sim)- Glowing Black, (2YRs WRTY)-5"
+      }
+    ],
+    "mainImageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/0016581/1.jpg?6249",
+    "specifications": {
+      "": {},
+      "Technical Specifications": {},
+      "Size and WeightHeight:16.56cmWidth:7.59cmThickness:0.79cmWeight:192g": {},
+      "StorageRAM:8GBROM:128GBRAM Type:LPDDR4X@1800MHz, dual 16-bit channelsUSB OTG:Supported": {},
+      "DisplaySize:17.06cmScreen Ratio:91.40%Resolution: FHD+(2400×1080)Touch Sampling Rate: 180HzColour Gamut:Vivid mode: 100% DCI-P3Gentle mode: 100% sRGBColor Depth:16.7 million colors (8-bit)Pixel Density:391PPIBrightness:Typical: 550nits,Max in direct sunlight: 680nitsPanel:LCD (LTPS)": {},
+      "CameraRearMain camera: 50MP; f/1.8; FOV 75.5°; 5P lens; AF supportedMono camera: 2MP; f/2.4; FOV 89.1°; 3P lens; FF": {},
+      "Front8MP; f/2.0; FOV 80°; 4P lens; FF": {},
+      "Shooting Mode": {},
+      "Rear: Night, Video, Photo, Portrait, Time-lapse, PRO, PANO, Sticker, and Google LensFront: Video, Photo, Portrait, Time-lapse, PANO, and Sticker": {},
+      "VideoRear:Supported: 1080P/720P@30fps;Default: 1080P@30fpsFront: Supported: 1080P/720P@30fps; Default: 720P@30fps": {},
+      "ChipsCPU:MediaTek Helio G85CPU Speed Cores: 8 cores, up to 2.0GHzGPU: Mali G52 MC2 @1000MHz": {},
+      "BatteryTypical value: 5000mAh/19.55WhRated value: 4880mAh/19.09WhFast Charge:SUPERVOOCTM 33W, VOOC": {},
+      "BiometricsFingerprint:SupportedFacial Recognition: Supported": {},
+      "SensorsGeomagnetic sensorLight sensorProximity sensorAccelerometerGravity sensorStep counter": {},
+      "Cellular NetworkSIM 2: SupportedSIM Card Type: Nano-SIM card": {},
+      "ConnectivityWLANWi-Fi 5 (802.11ac), 802.11a/b/g/n;WLAN 2.4G/WLAN 5G;Supports WLAN Display; WLAN sharingBluetooth® Version: Bluetooth® 5.3, Bluetooth® Low EnergyBluetooth® Audio Codec:SBC, AAC, aptX HD, and LDACUSB Interface: USB Type-CEarphone Jack: 3.5mmCell Broadcast Service (CBS): Supported": {},
+      "Operating SystemColorOS 13.1": {},
+      "Location TechnologyGNSS:Beidou: B11; GPS: L1; GLONASS: G1; Galileo: E1; QZSS: L1Others:Assisted GPS (A-GPS); WLAN and cellular network positioningMaps:Google Maps and other third-party map apps": {},
+      "In the Box": {},
+      "Phone x 1Charger x 1USB Data Cable x 1SIM Ejector Tool x 1Quick Guide x 1Safety Guide x 1Protective Case x 1": {},
+      "Key Features": {
+        "RAM:8GB": true,
+        "ROM:128GB": true,
+        "CPU:MediaTek Helio G85": true,
+        "Main camera: 50MP": true,
+        "Front: 8MP": true,
+        "Typical value: 5000mAh": true
+      },
+      "What’s in the box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Specifications": {
+        "SKU": "OP896MP33C3EINAFAMZ",
+        "Model": "A58",
+        "Weight (kg)": "0.1",
+        "Shop Type": "Jumia Mall",
+        "Warranty Address": "2 Years (Nairobi Oppo Service Centre)"
+      }
+    },
+    "customerFeedback": {
+      "overallRating": 4.5,
+      "totalRatings": 21,
+      "ratingBreakdown": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 7,
+        "5": 13
+      },
+      "reviews": [
+        {
+          "rating": 5,
+          "title": "I like it",
+          "content": "I like it",
+          "date": "11-09-2024",
+          "author": "Isa",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Marvelous",
+          "content": "I love everything with this phone, so cool indeed",
+          "date": "11-06-2024",
+          "author": "Mark",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "battery charge",
+          "content": "Charge to last longer, I suggest if the battery could be 10000mah. Other wise I am getting to understand your product as I continue to use.",
+          "date": "10-06-2024",
+          "author": "David",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "I like it",
+          "content": "I like it",
+          "date": "11-09-2024",
+          "author": "Isa",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Marvelous",
+          "content": "I love everything with this phone, so cool indeed",
+          "date": "11-06-2024",
+          "author": "Mark",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "battery charge",
+          "content": "Charge to last longer, I suggest if the battery could be 10000mah. Other wise I am getting to understand your product as I continue to use.",
+          "date": "10-06-2024",
+          "author": "David",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Battery life and Camera",
+          "content": "Both the camera and battery are exactly what I bargained for",
+          "date": "06-06-2024",
+          "author": "Dennis",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "I like it",
+          "content": "excellent",
+          "date": "05-04-2024",
+          "author": "Stanley",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "A58 Oppo phone",
+          "content": "The phone has a magical touch, it's the best in town, boasting an  8gb ram and 50 MEGA pixels.",
+          "date": "18-03-2024",
+          "author": "Harrison",
+          "verifiedPurchase": true
+        }
+      ],
+      "seeAllUrl": "https://www.jumia.co.ke/catalog/productratingsreviews/sku/OP896MP33C3EINAFAMZ/"
+    },
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "productName": "Oppo A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)",
+    "price": "KSh 19,794",
+    "oldPrice": "KSh 22,999",
+    "discount": "14%",
+    "rating": "3.8 out of 5",
+    "verifiedRatings": "(24 verified ratings)",
+    "stock": {
+      "inStock": true,
+      "stockStatus": "17 items left",
+      "unitsLeft": 17
+    },
+    "images": [
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/33/7356581/1.jpg?6782",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/1.jpg?6782",
+        "alt": "product_image_name-Oppo-A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)-1"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/33/7356581/2.jpg?6782",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/2.jpg?6782",
+        "alt": "product_image_name-Oppo-A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)-2"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/33/7356581/3.jpg?6782",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/3.jpg?6782",
+        "alt": "product_image_name-Oppo-A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)-3"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/33/7356581/4.jpg?6782",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/4.jpg?6782",
+        "alt": "product_image_name-Oppo-A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)-4"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/33/7356581/5.jpg?6782",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/5.jpg?6782",
+        "alt": "product_image_name-Oppo-A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)-5"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/33/7356581/6.jpg?6782",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/6.jpg?6782",
+        "alt": "product_image_name-Oppo-A38, 6.56\", 4GB RAM + 128GB,50MP, 5000mAh (Dual SIM), Glowing Gold (2YRs WRTY)-6"
+      }
+    ],
+    "mainImageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/7356581/1.jpg?6782",
+    "specifications": {
+      "Discover the details": {},
+      "": {},
+      "Technical Specification": {
+        "Size and Weight": true,
+        "Height": "163.74mm",
+        "Width": "75.03mm",
+        "Thickness": "8.16mm",
+        "Weight": "190g"
+      },
+      "Storage": {
+        "RAM": "4GB",
+        "ROM": "128GB",
+        "RAM Type": "LPDDR4x @ 1800MHz 2×16bit",
+        "ROM Specifications": "EMMC5.1",
+        "Phone Storage Card": "Supported",
+        "USB OTG": "Supported"
+      },
+      "Display": {
+        "Size": "6.56\"",
+        "Screen Ratio": "89.80%",
+        "Resolution": "HD+ (1612x720)",
+        "Refresh Rate": "90/60Hz",
+        "Touch Sampling Rate": "90Hz",
+        "Colour Gamut": "Vivid mode",
+        "Color Depth": "16.7 million colors",
+        "Brightness": "Max in direct sunlight",
+        "Panel": "LCD"
+      },
+      "CameraRear": {
+        "Main camera": "50MP; f/1.8; FOV 75.5°; 5P lens; AF supported",
+        "Mono camera": "2MP; f/2.4; FOV 89.1°; 3P lens; fixed-focus",
+        "Front": "5MP; f/2.2; FOV 76.8°; 3P lens; FF supported"
+      },
+      "Shooting Mode": {
+        "Rear": "Night, Video, Photo, Portrait, Time-lapse, PRO, PANO, Sticker, and Google Lens",
+        "Front": "Video, Photo, Portrait, Time-lapse, PANO, and Sticker"
+      },
+      "VideoRear": {
+        "Supported": "1080P/720P@30fps;",
+        "Default": "1080P@30fps"
+      },
+      "Front": {
+        "Supported": "1080P/720P@30fps;",
+        "Default": "720P@30fps"
+      },
+      "Chips": {
+        "CPU": "MediaTek Helio G85",
+        "CPU Speed Cores": "8 cores, up to 2.0GHz",
+        "GPU": "Mali G52 MC2 @1000MHz"
+      },
+      "Battery": {
+        "Typical value": "5000mAh/19.55Wh",
+        "Rated value": "4880mAh/19.09Wh",
+        "Fast Charge": "VOOC, 33W SUPERVOOCTM, and PD (9V/1.5A)"
+      },
+      "Biometrics": {
+        "Fingerprint": "Supported",
+        "Facial Recognition": "Supported"
+      },
+      "Sensors": {
+        "Geomagnetic sensor": true,
+        "Light sensor": true,
+        "Optical proximity sensor": true,
+        "Accelerometer": true,
+        "Step counter": true
+      },
+      "Cellular Network": {
+        "SIM 2": "Supported",
+        "SIM Card Type": "Nano-SIM card"
+      },
+      "Connectivity": {
+        "WLAN": true,
+        "Wi-Fi 5 (802.11ac), 802.11a/b/g/n/;": true,
+        "WLAN 2.4G/WLAN 5G;": true,
+        "WLAN Display; WLAN tethering; 1x1SOSO; Wi-Fi 5GHz 80MHz": true,
+        "Bluetooth® Version": "Bluetooth® 5.3, Bluetooth® Low Energy",
+        "Bluetooth® Audio Codec": "SBC, AAC, aptX HD, and LDAC",
+        "USB Interface": "USB Type-C",
+        "Earphone Jack": "3.5mm",
+        "NFC": "Supported"
+      },
+      "Operating System": {
+        "ColorOS 13.1": true
+      },
+      "Location Technology": {
+        "GNSS": "Beidou",
+        "Others": "Assisted GPS (A-GPS); WLAN and cellular network positioning",
+        "Maps": "Google Maps and other third-party map apps"
+      },
+      "In the Box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Key Features": {
+        "Size: 6.56\"": true,
+        "RAM: 4GB": true,
+        "ROM: 128GB": true,
+        "Main camera: 50MP; f/1.8; FOV 75.5°; 5P lens; AF supported": true,
+        "Fingerprint: Supported": true,
+        "5000mAh/19.55Wh.": true
+      },
+      "What’s in the box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Specifications": {
+        "SKU": "OP896MP27MF3ENAFAMZ",
+        "Model": "CPH2579",
+        "Weight (kg)": "0.1",
+        "Main Material": "-",
+        "Shop Type": "Jumia Mall",
+        "Warranty Address": "2 Years (Nairobi Oppo Service Centre)",
+        "Warranty Type": "Service Center - Nairobi"
+      }
+    },
+    "customerFeedback": {
+      "overallRating": 3.8,
+      "totalRatings": 24,
+      "ratingBreakdown": {
+        "1": 2,
+        "2": 3,
+        "3": 2,
+        "4": 8,
+        "5": 9
+      },
+      "reviews": [
+        {
+          "rating": 2,
+          "title": "earphones and changer",
+          "content": "No earphones and the changer has no Oppo log",
+          "date": "15-08-2024",
+          "author": "Gilbert",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Great",
+          "content": "Love it. Works well",
+          "date": "11-07-2024",
+          "author": "Lisa",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 3,
+          "title": "not sure",
+          "content": "sometimes it hangs, if it persists I'm returning it",
+          "date": "16-05-2024",
+          "author": "Akoth",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 2,
+          "title": "earphones and changer",
+          "content": "No earphones and the changer has no Oppo log",
+          "date": "15-08-2024",
+          "author": "Gilbert",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 5,
+          "title": "Great",
+          "content": "Love it. Works well",
+          "date": "11-07-2024",
+          "author": "Lisa",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 3,
+          "title": "not sure",
+          "content": "sometimes it hangs, if it persists I'm returning it",
+          "date": "16-05-2024",
+          "author": "Akoth",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "It's a good one",
+          "content": "It's a good though android version still not the best",
+          "date": "09-05-2024",
+          "author": "David",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "just satisfied",
+          "content": "The pic of the camera does not depict the camera's reaolution",
+          "date": "05-04-2024",
+          "author": "Alloysias",
+          "verifiedPurchase": true
+        },
+        {
+          "rating": 4,
+          "title": "I like it",
+          "content": "First of all its a lightweight product good in network even when making call its has very clear sound in general I love everything in it very perfect product.",
+          "date": "28-03-2024",
+          "author": "Keter",
+          "verifiedPurchase": true
+        }
+      ],
+      "seeAllUrl": "https://www.jumia.co.ke/catalog/productratingsreviews/sku/OP896MP27MF3ENAFAMZ/"
+    },
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "productName": "Oppo Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)",
+    "price": "KSh 69,999",
+    "oldPrice": "KSh 139,998",
+    "discount": "50%",
+    "rating": "0 out of 5",
+    "verifiedRatings": "(No ratings available)",
+    "stock": {
+      "inStock": true,
+      "stockStatus": "1 units left",
+      "unitsLeft": 1
+    },
+    "images": [
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/1.jpg?5813",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/1.jpg?5813",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-1"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/2.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/2.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-2"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/3.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/3.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-3"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/4.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/4.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-4"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/5.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/5.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-5"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/6.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/6.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-6"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/7.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/7.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-7"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/08/3417862/8.jpg?2131",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/8.jpg?2131",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Astro Silver + Free Buds 2 (2YRs WRTY)-8"
+      }
+    ],
+    "mainImageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/08/3417862/1.jpg?5813",
+    "specifications": {
+      "": {
+        "GSM": "850/900/1800/1900MHz",
+        "WCDMA": "Bands 1/2/4/5/6/8/19",
+        "LTE FDD": "Bands 1/2/3/4/5/7/8/12/13/17/18/19/20/26/28/66",
+        "LTE TDD": "Bands 38/39/40/41",
+        "5G NR": "n1/n2/n3/n5/n7/n8/n12/n20/n26/n28/n38/n40/n41/n77/n78/n66"
+      },
+      "Technical Specification": {},
+      "Storage": {
+        "RAM": "12GB",
+        "ROM": "512GB",
+        "RAM Type": "LPDDR4X@2133 MHz, 2 × 16 bits",
+        "ROM Specifications": "UFS 3.1",
+        "Phone Storage Card": "SD 3.0",
+        "USB OTG": "Supported"
+      },
+      "Display": {
+        "Size": "6.7\"",
+        "Screen Ratio": "93.2%",
+        "Resolution": "FHD + (2412 x 1080)",
+        "Refresh Rate": "Maximum",
+        "Touch Sampling Rate": "Maximum",
+        "Default": "120Hz",
+        "Vivid mode": "100% DCI-P3/97% NTSC",
+        "Gentle mode": "100% sRGB/72% NTSC",
+        "Cinema mode": "100% DCI-P3/96% NTSC",
+        "Brilliant mode": "100% DCI-P3/107% NTSC",
+        "Color Depth": "1.07 billion colors",
+        "Pixel Density": "394PPI",
+        "Brightness": true,
+        "Maximum brightness configurable": "600nits",
+        "Maximum brightness in sunshine": "1200nits",
+        "Panel": "3D Flexible AMOLED with two curved edges of equal height",
+        "Cover Glasses": "Corning® Gorilla® Glass 7i"
+      },
+      "CameraRear": {
+        "Main": "50MP; f/1.8; FOV 79°; 5P lens; AF; OIS supported",
+        "Ultra-wide angle": "8MP; f/2.2; FOV 112°; 5P lens",
+        "Macro": "2MP; f/2.4; FOV 89°; 3P lens"
+      },
+      "Front": {
+        "4K/1080P/720P@30fps, 1080P@30fps (beautification on by default);": true,
+        "Video stabilization in 1080P/720P@30fps;": true,
+        "Video zoom;": true,
+        "Time-lapse;": true,
+        "Slow motion not supported": true
+      },
+      "Rear:": {
+        "Pro, Video, Photo, Portrait, Night, Extra HD, Pano, Slo-Mo, Time-Lapse, Dual-view video, Sticker, Doc Scanner, and Google Lens": true,
+        "Front": "Video, Photo, Portrait, Night, Pano, Time-lapse, Dual-view video, Sticker, etc."
+      },
+      "VideoRear": {},
+      "Chips": {
+        "SoC": "MediaTek Dimensity 7300-Energy",
+        "CPU": "8 cores",
+        "GPU": "Arm Mali-G615"
+      },
+      "Battery": {
+        "4880mAh/19.09Wh (Rated)": true,
+        "5000mAh/19.5Wh (Typical)": true,
+        "Fast Charge": "Protocols supported"
+      },
+      "Biometrics": {
+        "Fingerprint": "Supported",
+        "Facial Recognition": "Supported"
+      },
+      "Sensors": {
+        "Geomagnetic sensor": true,
+        "In-display proximity sensor": true,
+        "In-display optical sensor": true,
+        "Acceleration sensor": true,
+        "Gravity sensor": true,
+        "Gyroscope": true,
+        "Step counting": true,
+        "Infrared remote control": true
+      },
+      "Cellular Network": {
+        "SIM 2": "Supported",
+        "SIM Card Type": "Nano-SIM card"
+      },
+      "Frequency Band": {},
+      "Connectivity": {
+        "Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), 802.11a/b/g/n;": true,
+        "WLAN 2.4G/WLAN 5G;": true,
+        "WLAN Display;": true,
+        "WLAN tethering;": true,
+        "2 × 2 MIMO": true,
+        "Bluetooth® Version": "Bluetooth® 5.4",
+        "Bluetooth® Audio Codec": "SBC, AAC, aptX-HD, LDAC, and LHDC",
+        "USB Interface": "USB Type-C",
+        "Earphone Jack": "Type-C",
+        "NFC": "Supported"
+      },
+      "Operating System": {
+        "ColorOS 14.1": true
+      },
+      "In the Box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Key Features": {
+        "Size:6.7\"": true,
+        "Screen Ratio: 93.2%": true,
+        "RAM: 12GB": true,
+        "ROM: 512GB": true,
+        "Dual Sim": true
+      },
+      "What’s in the box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Specifications": {
+        "SKU": "OP896MP3G1HJUNAFAMZ",
+        "Model": "CPH2625",
+        "Weight (kg)": "0.1",
+        "Warranty Address": "2 Years (Nairobi Oppo Service Centre)"
+      }
+    },
+    "customerFeedback": null,
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  },
+  {
+    "productName": "Oppo Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)",
+    "price": "KSh 69,999",
+    "oldPrice": "KSh 139,998",
+    "discount": "50%",
+    "rating": "0 out of 5",
+    "verifiedRatings": "(No ratings available)",
+    "stock": {
+      "inStock": true,
+      "stockStatus": "2 units left",
+      "unitsLeft": 2
+    },
+    "images": [
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/1.jpg?1311",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/1.jpg?1311",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-1"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/2.jpg?2767",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/2.jpg?2767",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-2"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/3.jpg?2767",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/3.jpg?2767",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-3"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/4.jpg?2767",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/4.jpg?2767",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-4"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/5.jpg?2767",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/5.jpg?2767",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-5"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/6.jpg?2767",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/6.jpg?2767",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-6"
+      },
+      {
+        "largeImageUrl": "https://ke.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/63/4699962/7.jpg?2767",
+        "thumbnailUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/7.jpg?2767",
+        "alt": "product_image_name-Oppo-Reno12 5G,6.7\",12GB RAM+512GB ROM(Dual Sim) Matte Brown (2YRs WRTY)-7"
+      }
+    ],
+    "mainImageUrl": "https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/63/4699962/1.jpg?1311",
+    "specifications": {
+      "": {
+        "GSM": "850/900/1800/1900MHz",
+        "WCDMA": "Bands 1/2/4/5/6/8/19",
+        "LTE FDD": "Bands 1/2/3/4/5/7/8/12/13/17/18/19/20/26/28/66",
+        "LTE TDD": "Bands 38/39/40/41",
+        "5G NR": "n1/n2/n3/n5/n7/n8/n12/n20/n26/n28/n38/n40/n41/n77/n78/n66"
+      },
+      "Technical Specification": {},
+      "Storage": {
+        "RAM": "12GB",
+        "ROM": "512GB",
+        "RAM Type": "LPDDR4X@2133 MHz, 2 × 16 bits",
+        "ROM Specifications": "UFS 3.1",
+        "Phone Storage Card": "SD 3.0",
+        "USB OTG": "Supported"
+      },
+      "Display": {
+        "Size": "6.7\"",
+        "Screen Ratio": "93.2%",
+        "Resolution": "FHD + (2412 x 1080)",
+        "Refresh Rate": "Maximum",
+        "Touch Sampling Rate": "Maximum",
+        "Default": "120Hz",
+        "Vivid mode": "100% DCI-P3/97% NTSC",
+        "Gentle mode": "100% sRGB/72% NTSC",
+        "Cinema mode": "100% DCI-P3/96% NTSC",
+        "Brilliant mode": "100% DCI-P3/107% NTSC",
+        "Color Depth": "1.07 billion colors",
+        "Pixel Density": "394PPI",
+        "Brightness": true,
+        "Maximum brightness configurable": "600nits",
+        "Maximum brightness in sunshine": "1200nits",
+        "Panel": "3D Flexible AMOLED with two curved edges of equal height",
+        "Cover Glasses": "Corning® Gorilla® Glass 7i"
+      },
+      "CameraRear": {
+        "Main": "50MP; f/1.8; FOV 79°; 5P lens; AF; OIS supported",
+        "Ultra-wide angle": "8MP; f/2.2; FOV 112°; 5P lens",
+        "Macro": "2MP; f/2.4; FOV 89°; 3P lens"
+      },
+      "Front": {
+        "4K/1080P/720P@30fps, 1080P@30fps (beautification on by default);": true,
+        "Video stabilization in 1080P/720P@30fps;": true,
+        "Video zoom;": true,
+        "Time-lapse;": true,
+        "Slow motion not supported": true
+      },
+      "Rear:": {
+        "Pro, Video, Photo, Portrait, Night, Extra HD, Pano, Slo-Mo, Time-Lapse, Dual-view video, Sticker, Doc Scanner, and Google Lens": true,
+        "Front": "Video, Photo, Portrait, Night, Pano, Time-lapse, Dual-view video, Sticker, etc."
+      },
+      "VideoRear": {},
+      "Chips": {
+        "SoC": "MediaTek Dimensity 7300-Energy",
+        "CPU": "8 cores",
+        "GPU": "Arm Mali-G615"
+      },
+      "Battery": {
+        "4880mAh/19.09Wh (Rated)": true,
+        "5000mAh/19.5Wh (Typical)": true,
+        "Fast Charge": "Protocols supported"
+      },
+      "Biometrics": {
+        "Fingerprint": "Supported",
+        "Facial Recognition": "Supported"
+      },
+      "Sensors": {
+        "Geomagnetic sensor": true,
+        "In-display proximity sensor": true,
+        "In-display optical sensor": true,
+        "Acceleration sensor": true,
+        "Gravity sensor": true,
+        "Gyroscope": true,
+        "Step counting": true,
+        "Infrared remote control": true
+      },
+      "Cellular Network": {
+        "SIM 2": "Supported",
+        "SIM Card Type": "Nano-SIM card"
+      },
+      "Frequency Band": {},
+      "Connectivity": {
+        "Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), 802.11a/b/g/n;": true,
+        "WLAN 2.4G/WLAN 5G;": true,
+        "WLAN Display;": true,
+        "WLAN tethering;": true,
+        "2 × 2 MIMO": true,
+        "Bluetooth® Version": "Bluetooth® 5.4",
+        "Bluetooth® Audio Codec": "SBC, AAC, aptX-HD, LDAC, and LHDC",
+        "USB Interface": "USB Type-C",
+        "Earphone Jack": "Type-C",
+        "NFC": "Supported"
+      },
+      "Operating System": {
+        "ColorOS 14.1": true
+      },
+      "In the Box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Key Features": {
+        "Size:6.7\"": true,
+        "Screen Ratio: 93.2%": true,
+        "RAM: 12GB": true,
+        "ROM: 512GB": true,
+        "Dual Sim": true
+      },
+      "What’s in the box": {
+        "Phone x 1": true,
+        "Charger x 1": true,
+        "USB Data Cable x 1": true,
+        "SIM Ejector Tool x 1": true,
+        "Quick Guide x 1": true,
+        "Safety Guide x 1": true,
+        "Protective Case x 1": true
+      },
+      "Specifications": {
+        "SKU": "OP896MP4CV2R0NAFAMZ",
+        "Model": "CPH2625",
+        "Weight (kg)": "0.1",
+        "Warranty Address": "2 Years (Nairobi Oppo Service Centre)"
+      }
+    },
+    "customerFeedback": null,
+    "timestamp": "2024-10-02T20:43:05.977Z"
+  }
+]
