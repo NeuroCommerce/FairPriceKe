@@ -19,39 +19,39 @@ def main():
     shopping_assistant = ShoppingAssistant(llm=llm, verbose=1)
 
     # Upload CSV file for product data
-    uploaded_file = st.file_uploader("Choose a product data CSV file", type="csv")
+    # uploaded_file = st.file_uploader("Choose a product data CSV file", type="csv")
 
-    if uploaded_file:
+    # if uploaded_file:
         # Load the product data into a DataFrame
-        df = pd.read_csv(uploaded_file)
-        st.write("Product Data Preview:")
-        st.dataframe(df.head())
+    df = pd.read_csv(r"data\Phone Place Kenya Scraping\scraped_phones_data.csv")
+    st.write("Product Data Preview:")
+    st.dataframe(df.head())
 
-        # Allow the user to select the brand they are interested in
-        brands = df['Brands'].unique()
-        selected_brand = st.selectbox("Select a brand:", brands)
+    # Allow the user to select the brand they are interested in
+    brands = df['Brands'].unique()
+    selected_brand = st.selectbox("Select a brand:", brands)
 
-        # Filter the data based on the selected brand
-        product_data = df[df['Brands'] == selected_brand]
+    # Filter the data based on the selected brand
+    product_data = df[df['Brands'] == selected_brand]
 
-        # Ask user to input a question
-        question = st.text_input("Ask a question about deals:", "What is the best deal for today?")
+    # Ask user to input a question
+    question = st.text_input("Ask a question about deals:", "What is the best deal for today?")
 
-        # Button to run the LLM
-        if st.button("Get Best Deal"):
-            # Run the ShoppingAssistant with the user's question and filtered product data
-            result = shopping_assistant.run(question, product_data.to_dict(orient='records'))
-            st.write("Result:")
-            st.write(result)
-        # Display each product in a card-like format in a grid layout
-        st.subheader(f"Products from {selected_brand}")
+    # Button to run the LLM
+    if st.button("Get Best Deal"):
+        # Run the ShoppingAssistant with the user's question and filtered product data
+        result = shopping_assistant.run(question, product_data.to_dict(orient='records'))
+        st.write("Result:")
+        st.write(result)
+    # Display each product in a card-like format in a grid layout
+    st.subheader(f"Products from {selected_brand}")
 
-        # Define how many products per row
-        products_per_row = 3
-        rows = [product_data[i:i + products_per_row] for i in range(0, len(product_data), products_per_row)]
+    # Define how many products per row
+    products_per_row = 3
+    rows = [product_data[i:i + products_per_row] for i in range(0, len(product_data), products_per_row)]
 
-        # Iterate through each row and display products
-        for row in rows:
+    # Iterate through each row and display products
+    for row in rows:
             cols = st.columns(products_per_row)
             for idx, (_, product) in enumerate(row.iterrows()):
                 with cols[idx]:
