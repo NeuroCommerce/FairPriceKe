@@ -5,6 +5,7 @@ from pydantic import BaseModel
 import pandas as pd
 import os
 from dotenv import load_dotenv
+from .clean_jumia_data import JumiaDataCleaner
 
 class ShoppingAssistant:
     def __init__(self, llm, verbose=0):
@@ -17,36 +18,39 @@ class ShoppingAssistant:
         self.llm = llm
         self.verbose = verbose
         self.prompt_template = """
-            You are an expert shopping assistant tasked with helping users find the best deals on products and compare them against other available options. You have access to product price data and historical trends from multiple e-commerce platforms in Kenya. Your goal is to answer user questions by providing the best deal for today and comparing it to other similar products.
+                            You are an expert shopping assistant specializing in helping users find the best deals on mobile phones from **Jumia** and **Phone Kenya**. You have access to product price data, historical trends, and reviews from both e-commerce platforms in Kenya. Your goal is to answer user questions by identifying the best phone deals today and comparing them across the two websites.
 
-            When responding to the user's questions, follow these guidelines:
+                When responding to user questions, follow these guidelines:
 
-            1. **Best Deal Identification**: 
-               - Look at the current prices, historical price trends, and any ongoing promotions for the product the user is asking about.
-               - Identify which product is offering the best deal today by considering price drops, discounts, and overall value.
-               - Mention any promotions, discounts, or special offers available.
+                1. **Best Deal Identification**:  
+                - Analyze current prices, price drops, discounts, and promotions for the phone the user is asking about.
+                - Identify which phone offers the best deal today by comparing prices and overall value between Jumia and Phone Kenya.
+                - Mention ongoing promotions, special offers, or significant price changes on either platform.
 
-            2. **Product Comparison**: 
-               - If the user asks to compare products, consider price differences, reviews, and any additional benefits or features between products.
-               - Use historical price data to predict whether the price of competing products is likely to drop soon.
+                2. **Phone Comparison**:  
+                - If the user asks for a comparison between phones, evaluate price differences, reviews, features, and any added benefits (e.g., warranty, accessories, etc.).
+                - Use historical price data to predict whether the prices of competing phones are likely to drop soon, helping users decide whether to buy now or wait.
 
-            3. **Recommendation**: 
-               - Recommend the best product based on price, features, and value. Explain why this product is the best choice today.
-               - If the user would benefit from waiting for a potential price drop, suggest waiting.
+                3. **Recommendation**:  
+                - Recommend the best phone based on price, features, reviews, and value across the two platforms.
+                - Explain why this phone is the best choice today. If waiting for a potential price drop is more advantageous, suggest waiting.
+                
+                4. **Platform-specific Insights**:  
+                - Highlight differences between the two platforms, such as shipping speed, customer reviews, or return policies that might impact the user's decision.
 
-            **Context of the product search:**
-            - Users are looking for the best deal today, often on frequently purchased items like groceries, electronics, and household items.
-            - Time-consuming price comparison is a major issue for users, and they are concerned about missing out on deals or promotions.
-            - Users want to make informed decisions, save time, and trust the pricing information they are receiving.
+                **Context of the product search**:  
+                - Users are focused on finding the best phone deals available today across Jumia and Phone Kenya.
+                - Time is a factor, so they need clear, concise, and reliable recommendations to make informed decisions without having to manually compare products on both sites.
 
-            User question: {question}
+                User question: {question}  
 
-            Product data: {Product_data}
+                Phone data from Jumia: {Jumia_data}  
+                Phone data from Phone Kenya: {Phone_Kenya_data}  
 
-            Based on this data, provide the best deal and relevant product comparisons.
+                Based on this data, provide the best deal, relevant comparisons, and a recommendation.
         """
 
-    def prepare(self, question, product_data):
+    def prepare(self, question, Jumia_data , Phone_Kenya_data):
         """
         Prepares the question and product data for the LLM chain.
         
@@ -56,9 +60,9 @@ class ShoppingAssistant:
         """
         if self.verbose:
             print("Preparing the inputs for the LLM chain...")
-        return {'question': question, 'Product_data': product_data}
+        return {'question': question, 'Jumia_data': Jumia_data , 'Phone_Kenya_data' : Phone_Kenya_data}
 
-    def run(self, question, product_data):
+    def run(self, question, Jumia_data , Phone_Kenya_data):
         """
         Runs the LLM chain with the prepared inputs.
         
@@ -68,15 +72,15 @@ class ShoppingAssistant:
         if self.verbose:
             print("Running the LLM chain...")
 
-        inputs = self.prepare(question, product_data)
+        inputs = self.prepare(question, Jumia_data , Phone_Kenya_data)
         prompt = PromptTemplate(
             input_variables=['question', 'Product_data'],
             template=self.prompt_template
         )
         chain = LLMChain(llm=self.llm, prompt=prompt)
-        return chain.run(question=inputs['question'], Product_data=inputs['Product_data'])
+        return chain.run(question=inputs['question'], Jumia_data=inputs['Jumia_data'] , Phone_Kenya_data =inputs['Phone_Kenya_data']  )
 
-    def test(self, question, product_data):
+    def test(self, question, Jumia_data , Phone_Kenya_data):
         """
         Test function to demonstrate the use of the assistant.
         
@@ -84,7 +88,7 @@ class ShoppingAssistant:
         :param product_data: The product data for analysis.
         :return: The result of running the LLM chain.
         """
-        inputs = self.prepare(question, product_data)
+        inputs = self.prepare(question, Jumia_data ,  Phone_Kenya_data)
         result = self.run(inputs)
         if self.verbose:
             print(f"Test Result: {result}")
@@ -100,12 +104,20 @@ if __name__ == "__main__":
     shopping_assistant = ShoppingAssistant(llm=llm, verbose=1)
 
     # Load the product data
-    df = pd.read_csv(r'..\data\Phone Place Kenya Scraping\scraped_phones_data.csv')
+    phone_k_df = pd.read_csv(r'..\data\Phone Place Kenya Scraping\scraped_phones_data.csv')
+    # Create an instance of the class
+    cleaner = JumiaDataCleaner(r'D:\Projects\FairPriceKe\FairPriceKe\data\Jumia\2024-10-03_all_brands_products.json')
+
+    # Get the cleaned DataFrame
+    jumai_df = cleaner.get_cleaned_data()
+
+    # # Display the cleaned data
+    # print(cleaned_df.head())
 
     # Test with a question and filtered data
     question = 'What is the best deal for today?'
-    product_data = df[df['Brands'] == 'Samsung']
+    # product_data = df[df['Brands'] == 'Samsung']
 
     # Run the test
-    res = shopping_assistant.run(question, product_data)
+    res = shopping_assistant.run(question, phone_k_df ,  jumai_df)
     print(res)
