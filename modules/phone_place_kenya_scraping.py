@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from datetime import datetime
+from clean_jumia_data import clean_jumia_data
 
 class PhonePlaceKenyaScraping:
     def __init__(self):
