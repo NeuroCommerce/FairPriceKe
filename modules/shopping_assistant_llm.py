@@ -6,6 +6,7 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from .clean_jumia_data import JumiaDataCleaner
+from .clean_phone_place_kenya import PhoneKenyaDataCleaner
 
 class ShoppingAssistant:
     def __init__(self, llm, verbose=0):
@@ -103,13 +104,15 @@ if __name__ == "__main__":
     # Initialize the ShoppingAssistant with verbosity
     shopping_assistant = ShoppingAssistant(llm=llm, verbose=1)
 
-    # Load the product data
-    phone_k_df = pd.read_csv(r'..\data\Phone Place Kenya Scraping\scraped_phones_data.csv')
+    csv_file_path = r'D:\Projects\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime.csv'
+    phone_k_cleaner = PhoneKenyaDataCleaner(csv_file_path)
+    phone_k_df = phone_k_cleaner.clean_data()
+    
     # Create an instance of the class
-    cleaner = JumiaDataCleaner(r'D:\Projects\FairPriceKe\FairPriceKe\data\Jumia\2024-10-03_all_brands_products.json')
+    jumai_cleaner = JumiaDataCleaner(r'D:\Projects\FairPriceKe\FairPriceKe\data\Jumia\2024-10-03_all_brands_products.json')
 
     # Get the cleaned DataFrame
-    jumai_df = cleaner.get_cleaned_data()
+    jumai_df = jumai_cleaner.get_cleaned_data()
 
     # # Display the cleaned data
     # print(cleaned_df.head())
