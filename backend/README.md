@@ -64,7 +64,7 @@ The Jumia Scraper API is a Node.js-based web scraping tool designed to extract p
 To start the server, run:
 
 ```
-npm start
+npm run start
 ```
 
 The server will start running on `http://localhost:3000` (or the port specified in your .env file).
