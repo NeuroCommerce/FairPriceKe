@@ -1,5 +1,3 @@
-#Documentation for your backend.
-
 # Jumia Scraper API
 
 ## Table of Contents
