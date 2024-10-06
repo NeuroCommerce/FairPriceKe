@@ -1,33 +1,39 @@
 import pandas as pd
 import numpy as np
 
+
 class PhoneKenyaDataCleaner:
     def __init__(self, csv_file):
         # Initialize with the CSV file path
         self.csv_file = csv_file
         self.df = pd.read_csv(self.csv_file)
-        
+
         # Strip any leading or trailing spaces from the column names
         self.df.columns = self.df.columns.str.strip()
-        print("Stripped Columns:", self.df.columns.tolist())
+        # print("Stripped Columns:", self.df.columns.tolist())
 
     def combine_date_time(self):
         # Combine 'Scrape Date' and 'Scrape Time' into a single 'timestamp' column
-        self.df['timestamp'] = pd.to_datetime(self.df['Scrape Date'] + ' ' + self.df['Scrape Time'])
+        self.df['timestamp'] = pd.to_datetime(
+            self.df['Scrape Date'] + ' ' + self.df['Scrape Time'])
 
     def clean_prices(self):
         # Clean price and old price by removing the currency symbol and commas, then convert to float
-        self.df['PhonePlaceKenya_Price'] = self.df['PhonePlaceKenya_Price'].str.replace('KSh', '').str.replace(',', '').astype(float)
-        self.df['PhonePlaceKenya_oldPrice'] = self.df['PhonePlaceKenya_oldPrice'].str.replace('KSh', '').str.replace(',', '').astype(float)
-    
+        self.df['PhonePlaceKenya_Price'] = self.df['PhonePlaceKenya_Price'].str.replace(
+            'KSh', '').str.replace(',', '').astype(float)
+        self.df['PhonePlaceKenya_oldPrice'] = self.df['PhonePlaceKenya_oldPrice'].str.replace(
+            'KSh', '').str.replace(',', '').astype(float)
+
     def calculate_discount(self):
         # Calculate the discount if both prices exist and round it to 2 decimal places
-        self.df['discount'] = ((self.df['PhonePlaceKenya_oldPrice'] - self.df['PhonePlaceKenya_Price']) / self.df['PhonePlaceKenya_oldPrice']) * 100
+        self.df['discount'] = ((self.df['PhonePlaceKenya_oldPrice'] -
+                               self.df['PhonePlaceKenya_Price']) / self.df['PhonePlaceKenya_oldPrice']) * 100
         self.df['discount'] = self.df['discount'].round(2)
 
     def extract_verified_ratings(self):
         # Extract 'verifiedRatings' from the Reviews column and convert to numerical values
-        self.df['verifiedRatings'] = self.df['Reviews'].str.extract(r'(\d+)').fillna(0).astype(int)
+        self.df['verifiedRatings'] = self.df['Reviews'].str.extract(
+            r'(\d+)').fillna(0).astype(int)
 
     def consolidate_key_features(self):
         # Consolidate all columns that contain product information into 'Key_Features'
@@ -37,11 +43,13 @@ class PhoneKenyaDataCleaner:
             'Operating System', 'Main Camera', 'Secondary Camera', 'Color', 'Main camera',
             'Front camera', 'Internal Storage', 'Selfie Camera', 'Tags'
         ]
-        self.df['Key_Features'] = self.df[product_info_columns].apply(lambda x: x.dropna().to_dict(), axis=1)
+        self.df['Key_Features'] = self.df[product_info_columns].apply(
+            lambda x: x.dropna().to_dict(), axis=1)
 
     def set_stock_status(self):
         # Set stock status (IN STOCK or SOLD OUT)
-        self.df['stock'] = np.where(self.df['Status'] == 'IN STOCK', 'IN STOCK', 'SOLD OUT')
+        self.df['stock'] = np.where(
+            self.df['Status'] == 'IN STOCK', 'IN STOCK', 'SOLD OUT')
 
     def reorder_columns(self):
         # Extract the brand from the product name
@@ -54,7 +62,7 @@ class PhoneKenyaDataCleaner:
         }, inplace=True)
 
         # Ensure that you have stripped and renamed columns correctly
-        print("Final Columns:", self.df.columns.tolist())
+        # print("Final Columns:", self.df.columns.tolist())
 
         # Reorder columns
         new_column_order = [
