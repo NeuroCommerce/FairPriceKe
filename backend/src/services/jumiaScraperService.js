@@ -1,44 +1,6 @@
 import puppeteer from 'puppeteer'
 import { JumiaScraper } from './scrapers/jumiaScraper.js'
-// const userRequestLimit = 50
-// const jumiaScraper = new JumiaScraper
-//
-// export const scrapeJumiaService = async (category) => {
-//   const browser = await puppeteer.launch({ headless: true })
-//   try {
-//     const results = await jumiaScraper.scrape(browser, category)
-//   } finally {
-//     await browser.close()
-//   }
-// }
 
-// export const scrapeJumiaService = async (category) => {
-//   console.log('scrapeJumiaService called with category:', category); // Debug log
-// 	
-//
-//   const browser = await puppeteer.launch({
-//     headless: true,
-//     args: ['--no-sandbox', '--disable-setuid-sandbox']
-//   });
-//
-//  /*  const scraper = new JumiaScraper(60); // Assuming 100 is your user request limit */
-//   const scraper = new JumiaScraper(60); // Assuming 100 is your user request limit
-//
-//   // Load homepage and find all brands
-//   const brands = await scraper.getBrandLinks(); // Function to get brand links
-//   try {
-//     console.log('Calling scraper.scrape with category:', category); // Debug log
-//     const results = await scraper.scrape(browser, category);
-//     console.log('Scraper returned results:', results.length); // Debug log
-//     return results;
-//   } finally {
-//     await browser.close();
-//   }
-// };
-
-// jumiaScraperService.js
-// import { JumiaScraper } from './jumiaScraper.js';
-//
 async function getBrands() {
   const scraper = new JumiaScraper(60);
   /* const browser = await scraper.launchBrowser(); */
