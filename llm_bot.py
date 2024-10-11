@@ -8,6 +8,8 @@ from modules.clean_jumia_data import JumiaDataCleaner
 from main import MainClass
 
 # Streamlit App
+
+
 def main():
     load_dotenv()  # Load environment variables
     google_api_key = os.getenv("GEMINI_KEY")  # Load API key from environment
@@ -15,15 +17,18 @@ def main():
     st.title("Shopping Assistant LLM")
 
     # Initialize the LLM
-    llm = GoogleGenerativeAI(model="gemini-1.5-flash-latest", api_key=google_api_key, temperature=0)
-    
+    llm = GoogleGenerativeAI(
+        model="gemini-1.5-flash-latest", google_api_key=google_api_key, temperature=0)
+
     # Paths to the datasets
     # For Phone Kenya data (CSV)
-    phone_kenya_csv_path = os.path.join( 'data', 'Phone Place Kenya Scraping', 'row', 'scraped_phones_with_datetime.csv')
+    phone_kenya_csv_path = os.path.join(
+        'data', 'Phone Place Kenya Scraping', 'row', 'scraped_phones_with_datetime.csv')
 
     # For Jumia data (JSON)
-    jumia_json_path = os.path.join('data', 'Jumia', '2024-10-03_all_brands_products.json')
-    
+    jumia_json_path = os.path.join(
+        'data', 'Jumia', '2024-10-03_all_brands_products.json')
+
     # Initialize the MainClass and run the test
     main_class = MainClass(llm=llm, verbose=1)
 
@@ -31,20 +36,22 @@ def main():
     # shopping_assistant = ShoppingAssistant(llm=llm, verbose=1)
 
     # Sidebar for navigation
-    section = st.sidebar.selectbox("Select Section", ["Data Exploration", "💬 Chat with Shopping Assistant"])
+    section = st.sidebar.selectbox(
+        "Select Section", ["Data Exploration", "💬 Chat with Shopping Assistant"])
 
     # Load the product data
     phone_k_df = pd.read_csv(phone_kenya_csv_path)
-    
+
     cleaner = JumiaDataCleaner(jumia_json_path)
     jumai_df = cleaner.get_cleaned_data()
-    
+
     # Initialize session state variables for chat history and messages if they don't exist
     if "messages" not in st.session_state:
         st.session_state.messages = []  # Initialize an empty list to store messages
 
     if "chat_history" not in st.session_state:
-        st.session_state.chat_history = pd.DataFrame(columns=["role", "content"])  # Empty dataframe for chat history
+        st.session_state.chat_history = pd.DataFrame(
+            columns=["role", "content"])  # Empty dataframe for chat history
 
     # Data Exploration Section
     if section == "Data Exploration":
@@ -75,11 +82,13 @@ def main():
     # Chat Section
     elif section == "💬 Chat with Shopping Assistant":
         st.header("💬 Chat with Shopping Assistant")
-        
+
         # Display chat history
         for message in st.session_state.messages:
-            is_arabic = message["content"][0].isascii() is False  # Check if the first character is non-ASCII (likely Arabic)
-            alignment = "right" if is_arabic else "left"  # Align right for Arabic, left for English
+            # Check if the first character is non-ASCII (likely Arabic)
+            is_arabic = message["content"][0].isascii() is False
+            # Align right for Arabic, left for English
+            alignment = "right" if is_arabic else "left"
             with st.chat_message(message["role"]):
                 st.markdown(
                     f"<div style='text-align: {alignment};'>{message['content']}</div>",
@@ -91,31 +100,37 @@ def main():
 
         if user_input:
             # Log user message in session_state
-            st.session_state.messages.append({"role": "user", "content": user_input})
+            st.session_state.messages.append(
+                {"role": "user", "content": user_input})
 
             # Display user's message in the chat
             st.chat_message("user").markdown(user_input)
 
             # Log user message in chat history DataFrame
-            new_message = pd.DataFrame([{"role": "user", "content": user_input}])
-            st.session_state.chat_history = pd.concat([st.session_state.chat_history, new_message], ignore_index=True)
+            new_message = pd.DataFrame(
+                [{"role": "user", "content": user_input}])
+            st.session_state.chat_history = pd.concat(
+                [st.session_state.chat_history, new_message], ignore_index=True)
 
             # Get response from the Shopping Assistant
             response = main_class.run(
                 user_input,
-                phone_kenya_csv_path, 
+                phone_kenya_csv_path,
                 jumia_json_path
             )
 
             # Log assistant's response in session_state
-            st.session_state.messages.append({"role": "assistant", "content": response})
+            st.session_state.messages.append(
+                {"role": "assistant", "content": response})
 
             # Display assistant's response in the chat
             st.chat_message("assistant").markdown(response)
 
             # Log assistant's response in chat history DataFrame
-            new_response = pd.DataFrame([{"role": "assistant", "content": response}])
-            st.session_state.chat_history = pd.concat([st.session_state.chat_history, new_response], ignore_index=True)
+            new_response = pd.DataFrame(
+                [{"role": "assistant", "content": response}])
+            st.session_state.chat_history = pd.concat(
+                [st.session_state.chat_history, new_response], ignore_index=True)
 
 
 if __name__ == "__main__":

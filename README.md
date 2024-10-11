@@ -9,6 +9,7 @@ This project implements a Shopping Assistant using a Large Language Model (LLM) 
 
 ## Requirements
 
+
 - Python 3.11+
 - Dependencies listed in `requirements.txt`
 
