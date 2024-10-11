@@ -45,7 +45,7 @@ class ShoppingAssistant:
 
                 ### 4. **Platform-Specific Insights**
                 - **Analyze platform-specific factors**, such as shipping speed, return policies, and verified customer reviews. Mention these if they impact the user’s decision.
-                - If a user asks for the **platform with the widest product range** (e.g., for a brand or category), compare the number of unique products listed on each platform and provide a clear recommendation.
+                - If a user asks for the **platform with the widest product range** (e.g., for a brand or category), compare the number  products listed on each platform and provide a clear recommendation.
 
                 ### 5. **Saving Potential and Price Predictions**
                 - When asked about potential savings (e.g., "how much can I save on this product?"), calculate the savings in both percentage and absolute terms.
@@ -87,7 +87,7 @@ class ShoppingAssistant:
                 2. **How does the price of [product] compare across the e-commerce sites in Kenya?**
                 - Provide a side-by-side comparison of prices, clearly showing the best offer, including any promotions or discounts.
 
-                3. **What are the 5 best deals in the [category] available right now?**
+                3. **What are the 5 (five) best deals in the [category] available right now?**
                 - Present a list of the top 5 deals based on price reductions, showing current price, old price, and discount percentage.
 
                 4. **What are the current best-selling phones under 20,000 KES?**
