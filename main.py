@@ -60,7 +60,7 @@ class MainClass:
         jumia_df = self.load_clean_jumia_data(jumia_json_path)
 
         # Run the ShoppingAssistant model
-        result = self.shopping_assistant.run(question, phone_k_df, jumia_df)
+        result = self.shopping_assistant.run(question, jumia_df, phone_k_df)
         return result
 
     def test(self, phone_kenya_csv_path, jumia_json_path):

@@ -9,7 +9,7 @@ class PhoneKenyaDataCleaner:
         
         # Strip any leading or trailing spaces from the column names
         self.df.columns = self.df.columns.str.strip()
-        print("Stripped Columns:", self.df.columns.tolist())
+        # print("Stripped Columns:", self.df.columns.tolist())
 
     def combine_date_time(self):
         # Combine 'Scrape Date' and 'Scrape Time' into a single 'timestamp' column
@@ -54,7 +54,7 @@ class PhoneKenyaDataCleaner:
         }, inplace=True)
 
         # Ensure that you have stripped and renamed columns correctly
-        print("Final Columns:", self.df.columns.tolist())
+        # print("Final Columns:", self.df.columns.tolist())
 
         # Reorder columns
         new_column_order = [
