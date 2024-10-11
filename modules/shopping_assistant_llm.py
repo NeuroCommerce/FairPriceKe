@@ -92,14 +92,19 @@ class ShoppingAssistant:
 
                 4. **What are the current best-selling phones under 20,000 KES?**
                 - Retrieve a list of phones under 20,000 KES from multiple platforms, highlighting the best-selling models based on price drops and customer interest.
+                
+                5. Are there any ongoing promotions for brand X that I should be aware of?
+                -  Should scan current promotions across various e-commerce platforms, identify any active deals or discounts for brand X products, AND present a SUMMARY of the most relevant and valuable offers.
 
+                IMPORTANT : FOR JSON data from Jumia THE PRODUCT LINK IS NOT AVILIBEL RIGHT NOW SO DON't DISPLAY IT 
+                IMPORTANT: FOR JSON data from Jumia THE same PRODUCT may have various sellers so if the user asks about the product's multiple sellers please display all of them
+                IMPORTANT: PLEASE DOUBLE CHECK IN PRODUCT NAME BEFORE DISPLAYING IT AND DISPLAY THE PRODUCT NAME BEFORE DISPLAY ANY INFORMATION ABOUT IT          
+                      
                 User question: {question}  
-
-User question: {question}  
-
-JSON data from Jumia: {Jumia_data}  
-
-JSON data from phoneplace kenya : {Phone_Kenya_data}  
+                ----------------------------------------------------
+                JSON data from Jumia: {Jumia_data}  
+                -----------------------------------------------------------
+                JSON data from phoneplace kenya : {Phone_Kenya_data}  
 
         """
 
