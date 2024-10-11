@@ -10,7 +10,6 @@ class PhoneKenyaDataCleaner:
 
         # Strip any leading or trailing spaces from the column names
         self.df.columns = self.df.columns.str.strip()
-        # print("Stripped Columns:", self.df.columns.tolist())
 
     def combine_date_time(self):
         # Combine 'Scrape Date' and 'Scrape Time' into a single 'timestamp' column
@@ -23,6 +22,21 @@ class PhoneKenyaDataCleaner:
             'KSh', '').str.replace(',', '').astype(float)
         self.df['PhonePlaceKenya_oldPrice'] = self.df['PhonePlaceKenya_oldPrice'].str.replace(
             'KSh', '').str.replace(',', '').astype(float)
+
+        # Ensure price <= oldPrice, and if price is NaN but oldPrice exists, swap them
+        for idx, row in self.df.iterrows():
+            price = row['PhonePlaceKenya_Price']
+            old_price = row['PhonePlaceKenya_oldPrice']
+
+            # If price is NaN and oldPrice has a value, move oldPrice to price and set oldPrice to NaN
+            if pd.isna(price) and pd.notna(old_price):
+                self.df.at[idx, 'PhonePlaceKenya_Price'] = old_price
+                self.df.at[idx, 'PhonePlaceKenya_oldPrice'] = np.nan
+
+            # If oldPrice is less than price, swap them
+            elif pd.notna(price) and pd.notna(old_price) and old_price < price:
+                self.df.at[idx, 'PhonePlaceKenya_Price'] = old_price
+                self.df.at[idx, 'PhonePlaceKenya_oldPrice'] = price
 
     def calculate_discount(self):
         # Calculate the discount if both prices exist and round it to 2 decimal places
@@ -61,12 +75,9 @@ class PhoneKenyaDataCleaner:
             'PhonePlaceKenya_oldPrice': 'oldPrice',
         }, inplace=True)
 
-        # Ensure that you have stripped and renamed columns correctly
-        # print("Final Columns:", self.df.columns.tolist())
-
         # Reorder columns
         new_column_order = [
-            'timestamp', 'productName', 'Brand', 'price', 'oldPrice',
+            'timestamp', 'productName', 'Brand', 'PhonePlaceKenya_productLink', 'price', 'oldPrice',
             'discount', 'verifiedRatings', 'stock', 'Key_Features'
         ]
         self.df_cleaned = self.df[new_column_order]
@@ -87,11 +98,11 @@ class PhoneKenyaDataCleaner:
 
 # Usage example
 if '__main__' == __name__:
-    csv_file_path = r'D:\Projects\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime.csv'
+    csv_file_path = r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime.csv'
     cleaner = PhoneKenyaDataCleaner(csv_file_path)
     cleaned_df = cleaner.clean_data()
 
-    # # Save to CSV
-    # output_path = r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv'
-    # cleaned_df.to_csv(output_path, index=False)
+    # Save to CSV
+    output_path = r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv'
+    cleaned_df.to_csv(output_path, index=False)
     print(cleaned_df)

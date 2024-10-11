@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from datetime import datetime
-from clean_jumia_data import clean_jumia_data
+# from clean_jumia_data import clean_jumia_data  # Ensure this module is available
 
 
 class PhonePlaceKenyaScraping:
@@ -70,6 +70,12 @@ class PhonePlaceKenyaScraping:
                     )
 
                     product = phones_grid[i]  # Access product element by index
+
+                    # Extract the product link before clicking
+                    product_link_element = product.find_element(
+                        By.TAG_NAME, 'a')
+                    product_link = product_link_element.get_attribute('href')
+
                     product.click()  # Click on the product
 
                     # Wait for the product details to load (single element)
@@ -90,11 +96,16 @@ class PhonePlaceKenyaScraping:
                     # Add product name to the data
                     product_data['productName'] = product_name
 
+                    # Add the product link to the data
+                    # New Field
+                    product_data['PhonePlaceKenya_productLink'] = product_link
+
                     # Add the current date and time to the product data
                     product_data['Scrape Date'] = datetime.now().strftime(
                         "%Y-%m-%d")  # Date
                     product_data['Scrape Time'] = datetime.now().strftime(
                         "%H:%M:%S")  # Time
+
                     # Extract discount percentage (if available)
                     try:
                         discount_percent = phone_info.find_element(
@@ -133,16 +144,16 @@ class PhonePlaceKenyaScraping:
 
         # Required columns in specific order
         ordered_columns = ['Scrape Date',
-                           'Scrape Time', 'productName']
+                           'Scrape Time', 'productName', 'PhonePlaceKenya_productLink']  # Added link here
 
         # Add other columns except 'Price 1' and 'Price 2'
         other_columns = [col for col in df.columns if col not in [
-            'Scrape Date', 'Scrape Time', 'productName', 'PhonePlaceKenya_oldPrice', 'PhonePlaceKenya_Price', 'PhonePlaceKenya_Discount', 'PhonePlaceKenya_verifiedRatings']]
+            'Scrape Date', 'Scrape Time', 'productName', 'PhonePlaceKenya_oldPrice', 'PhonePlaceKenya_Price', 'PhonePlaceKenya_Discount', 'PhonePlaceKenya_verifiedRatings', 'PhonePlaceKenya_productLink']]
 
         # Add 'Price 1' and 'Price 2' at the end
         ordered_columns += other_columns + \
             ['PhonePlaceKenya_verifiedRatings', 'PhonePlaceKenya_oldPrice', 'PhonePlaceKenya_Price',
-                'PhonePlaceKenya_Discount']
+             'PhonePlaceKenya_Discount', 'PhonePlaceKenya_productLink']  # Ensure link is included
 
         # Reorder the DataFrame
         df_reordered = df[ordered_columns]
@@ -180,7 +191,6 @@ if __name__ == "__main__":
     print(final_df.sample(3))
 
     # Save the DataFrame to CSV
-
     scraper.save_data_to_csv(
         final_df, r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime.csv')
 
