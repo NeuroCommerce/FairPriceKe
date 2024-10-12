@@ -379,7 +379,8 @@ class PhonePlaceKenyaScraping:
         self.driver.quit()
 
     def run(self):
-        categorys = ["nokia"]
+        categorys = ["nokia", "samsung", "apple", "infinix-phones-in-kenya", "google", "itel",
+                     "oppo", "oneplus", "realme", "tecno", "vivo", "xiaomi", "mobile-phone-accessories", "audio", "gaming"]
         for category in categorys:
             self.scrape_phones_data(category)
 
