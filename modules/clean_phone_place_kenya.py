@@ -1,12 +1,12 @@
 import pandas as pd
 import numpy as np
+import json
 
 
 class PhoneKenyaDataCleaner:
-    def __init__(self, csv_file):
+    def __init__(self, df):
         # Initialize with the CSV file path
-        self.csv_file = csv_file
-        self.df = pd.read_csv(self.csv_file)
+        self.df = df
 
         # Strip any leading or trailing spaces from the column names
         self.df.columns = self.df.columns.str.strip()
@@ -40,6 +40,7 @@ class PhoneKenyaDataCleaner:
 
     def calculate_discount(self):
         # Calculate the discount if both prices exist and round it to 2 decimal places
+        self.df['discount'] = 0
         self.df['discount'] = ((self.df['PhonePlaceKenya_oldPrice'] -
                                self.df['PhonePlaceKenya_Price']) / self.df['PhonePlaceKenya_oldPrice']) * 100
         self.df['discount'] = self.df['discount'].round(2)
@@ -58,7 +59,7 @@ class PhoneKenyaDataCleaner:
             'Front camera', 'Internal Storage', 'Selfie Camera', 'Tags'
         ]
         self.df['Key_Features'] = self.df[product_info_columns].apply(
-            lambda x: x.dropna().to_dict(), axis=1)
+            lambda x: json.dumps(x.dropna().to_dict()), axis=1)
 
     def set_stock_status(self):
         # Set stock status (IN STOCK or SOLD OUT)
@@ -78,7 +79,7 @@ class PhoneKenyaDataCleaner:
         # Reorder columns
         new_column_order = [
             'timestamp', 'productName', 'Brand', 'PhonePlaceKenya_productLink', 'price', 'oldPrice',
-            'discount', 'verifiedRatings', 'stock', 'Key_Features'
+            'discount', 'verifiedRatings', 'stock', 'Key_Features', 'Category'
         ]
         self.df_cleaned = self.df[new_column_order]
 
