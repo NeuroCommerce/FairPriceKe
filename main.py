@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 import pandas as pd
 from modules.clean_jumia_data import JumiaDataCleaner
-from modules.clean_phone_place_kenya import PhoneKenyaDataCleaner
+from modules.clean_phone_kenya_data import PhoneKenyaDataCleaner
 from modules.shopping_assistant_llm import ShoppingAssistant
 
 

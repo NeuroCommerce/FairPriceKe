@@ -6,7 +6,7 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 from .clean_jumia_data import JumiaDataCleaner
-from .clean_phone_place_kenya import PhoneKenyaDataCleaner
+from .clean_phone_kenya_data import PhoneKenyaDataCleaner
 
 
 class ShoppingAssistant:
@@ -21,7 +21,6 @@ class ShoppingAssistant:
         self.verbose = verbose
         self.prompt_template = """
                 
-
                 You are an expert shopping assistant specializing in helping users find the best deals on products from **Jumia** and **Phone Kenya** (or other relevant Kenyan e-commerce platforms).
 
                 When responding to user questions, follow these updated guidelines:
