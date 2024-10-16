@@ -9,6 +9,7 @@ from selenium.common.exceptions import TimeoutException
 from datetime import datetime
 # from clean_jumia_data import clean_jumia_data  # Ensure this module is available
 
+
 class PhonePlaceKenyaScraping:
     def __init__(self):
         # Initialization and other methods remain the same...
@@ -192,8 +193,7 @@ class PhonePlaceKenyaScraping:
         self.driver.quit()
 
     def run(self):
-        categorys = ["nokia", "samsung", "apple", "infinix-phones-in-kenya", "google", "itel",
-                     "oppo", "oneplus", "realme", "tecno", "vivo", "xiaomi", "mobile-phone-accessories", "audio", "gaming"]
+        categorys = ["nokia"]
         for category in categorys:
             self.scrape_phones_data(category)
 
