@@ -114,9 +114,7 @@ def main():
 
             # Get response from the Shopping Assistant
             response = main_class.run(
-                user_input,
-                phone_kenya_csv_path,
-                jumia_json_path
+                user_input
             )
 
             # Log assistant's response in session_state

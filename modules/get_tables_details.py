@@ -2,6 +2,8 @@
 import sqlalchemy
 from sqlalchemy import text  # Import text for executing raw SQL
 from sqlalchemy import create_engine, inspect
+from sqlalchemy.orm import sessionmaker
+
 
 import pandas as pd
 
@@ -17,6 +19,21 @@ class GetTabelsDetails:
         self.engine = sqlalchemy.create_engine(
                 f'mysql+pymysql://{self.user}:{self.password}@{self.host}/{self.db_name}'
                 ) 
+        
+        self.chatbot_Session = sessionmaker(bind=self.engine)
+
+
+
+    def create_chatbot_database_session(self):
+        session = self.chatbot_Session()
+        return session
+    
+    def try_to_close_connection(self):
+        try:
+            self.chatbot_Session.close()
+        except:
+            pass
+    
     def analyze_jumia_table(self):
         # # Create a connection to the database
         # engine = sqlalchemy.create_engine(
