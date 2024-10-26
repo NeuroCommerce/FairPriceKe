@@ -23,8 +23,8 @@ def main():
     # Paths to the datasets
     # For Phone Kenya data (CSV)
     # phone_kenya_csv_path = fr"{os.path.join('data', 'Phone Place Kenya Scraping', 'row', 'scraped_phones_with_datetime.csv')}"
-    jumia_json_path = r"D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Jumia\2024-10-25_string_products.json"
-    phone_kenya_csv_path = r"D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv"
+    jumia_json_path = r"data\Jumia\2024-10-25_string_products.json"
+    phone_kenya_csv_path = r"data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv"
     # For Jumia data (JSON)
     # jumia_json_path = os.path.join(
     #     'data', 'Jumia', '2024-10-03_all_brands_products.json')
