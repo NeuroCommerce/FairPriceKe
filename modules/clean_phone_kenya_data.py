@@ -52,12 +52,9 @@ class PhoneKenyaDataCleaner:
 
     def consolidate_key_features(self):
         # Consolidate all columns that contain product information into 'Key_Features'
-        product_info_columns = [
-            'RAM', 'Storage', 'Battery', 'Camera', 'Selfie', 'Display', 'Processor',
-            'Connectivity', 'Colors', 'OS', 'Network', 'Display Size', 'Resolution',
-            'Operating System', 'Main Camera', 'Secondary Camera', 'Color', 'Main camera',
-            'Front camera', 'Internal Storage', 'Selfie Camera', 'Tags'
-        ]
+        product_info_columns = self.df.columns.difference(
+            ['PhonePlaceKenya_oldPrice', 'PhonePlaceKenya_Price', 'discount', 'Status', 'timestamp',
+             'Category', 'productName', 'PhonePlaceKenya_productLink', 'verifiedRatings'])
         self.df['Key_Features'] = self.df[product_info_columns].apply(
             lambda x: json.dumps(x.dropna().to_dict()), axis=1)
 
@@ -67,6 +64,7 @@ class PhoneKenyaDataCleaner:
             self.df['Status'] == 'IN STOCK', 'IN STOCK', 'SOLD OUT')
 
     def reorder_columns(self):
+        self.df['Rating'] = 'unkown'
         # Extract the brand from the product name
         self.df['Brand'] = self.df['productName'].apply(lambda x: x.split()[0])
 
@@ -99,8 +97,9 @@ class PhoneKenyaDataCleaner:
 
 # Usage example
 if '__main__' == __name__:
-    csv_file_path = r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime.csv'
-    cleaner = PhoneKenyaDataCleaner(csv_file_path)
+    csv_file_path = r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime2.csv'
+    df = pd.read_csv(csv_file_path)
+    cleaner = PhoneKenyaDataCleaner(df)
     cleaned_df = cleaner.clean_data()
 
     # Save to CSV
