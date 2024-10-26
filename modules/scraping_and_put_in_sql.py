@@ -8,6 +8,24 @@ from clean_jumia_data import JumiaDataCleaner
 from sqlalchemy import create_engine, inspect
 
 
+def standardize_dataframes(df1, default_link="https://www.jumia.co.ke/?gad_source=1&gclid=CjwKCAjwjsi4BhB5EiwAFAL0YO0ItBXwhDXa2-8ANqkP7xaIs-g5Z7l1Bn8te1d8g7qNUxXCJ-7D0xoCcvAQAvD_BwE"):
+    # Step 1: Rename columns to match between df1 and df2
+    df1 = df1.rename(columns={
+        'jumia_price': 'price',
+        'jumia_oldPrice': 'oldPrice',
+        'jumia_discount': 'discount',
+        'jumia_verifiedRatings': 'verifiedRatings',
+        'jumia_stock': 'stock',
+        'jumia_rating': 'rating'
+    })
+
+    # Step 2: Add PhonePlaceKenya_productLink to df1 with default value
+    df1['jumia_productLink'] = default_link
+
+    # Step 4: Return both standardized dataframes
+    return df1
+
+
 class ConvertDfToSQL:
     def __init__(self):
         self.user = 'root'
@@ -67,13 +85,15 @@ class ConvertDfToSQL:
 
         # Scraping and cleaning for Jumia
         cleaner = JumiaDataCleaner(
-            r'data\Jumia\2024-10-03_all_brands_products.json')
+            r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Jumia\2024-10-03_all_brands_products.json')
         cleaned_df = cleaner.get_cleaned_data()
         cleaned_df.Key_Features = cleaned_df.Key_Features.apply(
             lambda x: json.dumps(x))
         cleaned_df.jumia_stock = cleaned_df.jumia_stock.apply(
             lambda x: json.dumps(x))
-
+        cleaned_df = standardize_dataframes(cleaned_df)
+        print(cleaned_df.info())
+        print(cleaned_df)
         # Replace old data in jumia table and append to history
         self.convert(cleaned_df, 'jumia'.lower(), mode='replace')
         self.append_to_history(cleaned_df, 'jumia_history'.lower())
