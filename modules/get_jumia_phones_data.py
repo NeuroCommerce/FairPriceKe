@@ -1,7 +1,7 @@
 import requests
 import json
 import time
-import schedule
+# import schedule
 from datetime import datetime
 
 
@@ -98,7 +98,7 @@ def run_scraper(category):
 
 
 # Schedule the scraper to run every 24 hours
-schedule.every(24).hours.do(run_scraper, 'all')
+# schedule.every(24).hours.do(run_scraper, 'all')
 
 if __name__ == "__main__":
     result = run_scraper('all')

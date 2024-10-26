@@ -16,8 +16,8 @@ class JumiaDataCleaner:
 
     def clean_data(self):
         # Select relevant columns
-        self.df = self.df[['productName', 'price', 'oldPrice', 'discount', 'rating',
-                            'verifiedRatings', 'stock', 'specifications', 'timestamp']]
+        self.df = self.df[['productName', 'productUrl' ,'price', 'oldPrice', 'discount', 'rating',
+                            'verifiedRatings', 'stock', 'specifications','category' ,'timestamp' ]]
 
         # Convert 'timestamp' column to datetime format
         self.df['timestamp'] = pd.to_datetime(self.df['timestamp'], errors='coerce')
@@ -56,7 +56,7 @@ class JumiaDataCleaner:
         # Rename the specified columns by adding 'jumia_' prefix
         columns_to_rename = ['price', 'oldPrice', 'discount', 'rating', 'verifiedRatings', 'stock']
         self.df.rename(
-            columns={col: 'jumia_' + col for col in columns_to_rename}, inplace=True)
+            columns={ 'productUrl' :'jumia_productLink' }, inplace=True)
 
         # Extract 'Key Features' from 'specifications'
         self.df['Key_Features'] = self.df['specifications'].apply(
@@ -66,15 +66,15 @@ class JumiaDataCleaner:
         self.df = self.df.drop('specifications', axis=1)
 
         # Add the 'Category' column
-        self.df['Category'] = 'Smart Phones'
+        # self.df['Category'] = 'Smart Phones'
 
 
     def reorder_columns(self):
         # Reorder the columns
         new_column_order = [
-            'timestamp', 'productName', 'Brand', 'jumia_price', 'jumia_oldPrice',
-            'jumia_discount', 'jumia_rating', 'jumia_verifiedRatings',
-            'jumia_stock', 'Key_Features', 'Category'
+            'timestamp', 'productName', 'Brand','jumia_productLink' ,'price', 'oldPrice',
+            'discount', 'rating', 'verifiedRatings',
+            'stock', 'Key_Features', 'category'
         ]
         self.df = self.df[new_column_order]
 
@@ -89,7 +89,7 @@ class JumiaDataCleaner:
 if __name__ == '__main__':
     # Create an instance of the class
     cleaner = JumiaDataCleaner(
-        r'D:\Projects\FairPriceKe\FairPriceKe\data\Jumia\2024-10-03_all_brands_products.json')
+        r'D:\Projects\FairPriceKe\FairPriceKe\data\Jumia\2024-10-25_string_products.json')
 
     # Get the cleaned DataFrame
     cleaned_df = cleaner.get_cleaned_data()

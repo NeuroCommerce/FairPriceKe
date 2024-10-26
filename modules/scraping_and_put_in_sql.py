@@ -29,7 +29,7 @@ def standardize_dataframes(df1, default_link="https://www.jumia.co.ke/?gad_sourc
 class ConvertDfToSQL:
     def __init__(self):
         self.user = 'root'
-        self.password = '1234'
+        self.password = 'mmm_321478910'
         self.host = 'localhost'
         self.db_name = 'FAIRPRICEKE'.lower()
 
@@ -85,13 +85,13 @@ class ConvertDfToSQL:
 
         # Scraping and cleaning for Jumia
         cleaner = JumiaDataCleaner(
-            r'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Jumia\2024-10-03_all_brands_products.json')
+            r'D:\Projects\FairPriceKe\v2\FairPriceKe\data\Jumia\2024-10-25_string_products.json')
         cleaned_df = cleaner.get_cleaned_data()
         cleaned_df.Key_Features = cleaned_df.Key_Features.apply(
             lambda x: json.dumps(x))
-        cleaned_df.jumia_stock = cleaned_df.jumia_stock.apply(
+        cleaned_df.stock = cleaned_df.stock.apply(
             lambda x: json.dumps(x))
-        cleaned_df = standardize_dataframes(cleaned_df)
+        # cleaned_df = standardize_dataframes(cleaned_df)
         print(cleaned_df.info())
         print(cleaned_df)
         # Replace old data in jumia table and append to history
