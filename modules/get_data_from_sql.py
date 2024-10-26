@@ -42,9 +42,9 @@ class GetDataFromSQL:
                     
                 3 rows example from jumia table :
                 timestamp	productName	Brand	jumia_productUrl price	oldPrice	discount	rating	verifiedRatings	stock	Key_Features	Category
-                0	2024-10-03 20:35:39	Samsung Galaxy A05	Samsung https://www.jumia.co.ke/...	11560.0	12500.0	8.0	4.3 out of 5	(51 verified ratings)	["inStock": true, "stockStatus": "87 items lef...	["Display:\u00a06.7\"\u00a0PLS LCD": true, "Re...	Smart Phones
-                1	2024-10-03 20:35:39	Samsung Galaxy A05	Samsung https://www.jumia.co.ke/...	12930.0	14000.0	8.0	4.7 out of 5	(7 verified ratings)	["inStock": true, "stockStatus": "In stock", "...	["6.7 inches IPS LCD display": true, "Qualcomm...	Smart Phones
-                2	2024-10-03 20:35:39	Samsung Fit 3 Smart Watch - Black(1 YR WRTY)	Samsung https://www.jumia.co.ke/...	10600.0	21200.0	50.0	5 out of 5	(1 verified rating)	["inStock": true, "stockStatus": "9 units left...	["Display: 1.6\" AMOLED Display. 256x402 Resol...	Smart Phones
+                0	2024-10-03 20:35:39	Samsung Galaxy A05	Samsung https://www.jumia.co.ke/...	11560.0	12500.0	8.0	4.3 out of 5	(51 verified ratings)	["inStock": true, "stockStatus": "87 items lef...	["Display:\u00a06.7\"\u00a0PLS LCD": true, "Re...	Smartphone
+                1	2024-10-03 20:35:39	Samsung Galaxy A05	Samsung https://www.jumia.co.ke/...	12930.0	14000.0	8.0	4.7 out of 5	(7 verified ratings)	["inStock": true, "stockStatus": "In stock", "...	["6.7 inches IPS LCD display": true, "Qualcomm...	Smartphone
+                2	2024-10-03 20:35:39	Samsung Fit 3 Smart Watch - Black(1 YR WRTY)	Samsung https://www.jumia.co.ke/...	10600.0	21200.0	50.0	5 out of 5	(1 verified rating)	["inStock": true, "stockStatus": "9 units left...	["Display: 1.6\" AMOLED Display. 256x402 Resol...	Smartphone
                     
                     
                 
@@ -110,7 +110,37 @@ class GetDataFromSQL:
                 
                 
                 
+                IMPORTANT : DON'T use ORDER BY within  SELECT when using UNION ALL. The ORDER BY should be applied only once after combining the results. Here's an example:
+                SELECT
+                    productName,
+                    jumia_productLink AS LINK,
+                    price,
+                    oldPrice,
+                    discount,
+                    verifiedRatings,
+                    stock,
+                    Key_Features
+                FROM jumia
+                WHERE
+                    discount > 0
 
+                UNION ALL
+
+                SELECT
+                    productName,
+                    PhonePlaceKenya_productLink AS LINK,
+                    price,
+                    oldPrice,
+                    discount,
+                    verifiedRatings,
+                    stock,
+                    Key_Features
+                FROM phoneplacekenya
+                WHERE
+                    discount > 0
+
+                ORDER BY
+                    discount DESC;
 
                 User question: {question}
 

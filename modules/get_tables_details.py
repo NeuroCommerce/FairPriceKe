@@ -11,7 +11,7 @@ import pandas as pd
 class GetTabelsDetails:
     def __init__(self):
         self.user = 'root'
-        self.password = '1234'
+        self.password = 'mmm_321478910'
         self.host = 'localhost'
         self.db_name = 'FAIRPRICEKE'.lower()
    
