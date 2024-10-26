@@ -71,11 +71,13 @@ class ConvertDfToSQL:
                 f"Error appending data to history table {history_table_name}: {e}")
 
     def run(self):
-        # Scraping for PhonePlaceKenya
-        ppk = PhonePlaceKenyaScraping()
-        df = ppk.run()
-        ppk_clean = PhoneKenyaDataCleaner(df)
-        df_cleaned = ppk_clean.clean_data()
+        # # Scraping for PhonePlaceKenya
+        # ppk = PhonePlaceKenyaScraping()
+        # df = ppk.run()
+        # ppk_clean = PhoneKenyaDataCleaner(df)
+        # df_cleaned = ppk_clean.clean_data()
+        
+        df_cleaned = pd.read_csv(r'data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv')
 
         # Replace old data in PhonePlaceKenya table and append to history
         self.convert(df_cleaned, 'PhonePlaceKenya'.lower(), mode='replace')
@@ -83,20 +85,20 @@ class ConvertDfToSQL:
 
         #############################################################
 
-        # Scraping and cleaning for Jumia
-        cleaner = JumiaDataCleaner(
-            r'D:\Projects\FairPriceKe\v2\FairPriceKe\data\Jumia\2024-10-25_string_products.json')
-        cleaned_df = cleaner.get_cleaned_data()
-        cleaned_df.Key_Features = cleaned_df.Key_Features.apply(
-            lambda x: json.dumps(x))
-        cleaned_df.stock = cleaned_df.stock.apply(
-            lambda x: json.dumps(x))
-        # cleaned_df = standardize_dataframes(cleaned_df)
-        print(cleaned_df.info())
-        print(cleaned_df)
-        # Replace old data in jumia table and append to history
-        self.convert(cleaned_df, 'jumia'.lower(), mode='replace')
-        self.append_to_history(cleaned_df, 'jumia_history'.lower())
+        # # Scraping and cleaning for Jumia
+        # cleaner = JumiaDataCleaner(
+        #     r'D:\Projects\FairPriceKe\v2\FairPriceKe\data\Jumia\2024-10-25_string_products.json')
+        # cleaned_df = cleaner.get_cleaned_data()
+        # cleaned_df.Key_Features = cleaned_df.Key_Features.apply(
+        #     lambda x: json.dumps(x))
+        # cleaned_df.stock = cleaned_df.stock.apply(
+        #     lambda x: json.dumps(x))
+        # # cleaned_df = standardize_dataframes(cleaned_df)
+        # print(cleaned_df.info())
+        # print(cleaned_df)
+        # # Replace old data in jumia table and append to history
+        # self.convert(cleaned_df, 'jumia'.lower(), mode='replace')
+        # self.append_to_history(cleaned_df, 'jumia_history'.lower())
 
 
 # Example usage

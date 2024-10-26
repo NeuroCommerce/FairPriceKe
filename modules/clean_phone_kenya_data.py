@@ -77,7 +77,7 @@ class PhoneKenyaDataCleaner:
         # Reorder columns
         new_column_order = [
             'timestamp', 'productName', 'Brand', 'PhonePlaceKenya_productLink', 'price', 'oldPrice',
-            'discount', 'verifiedRatings', 'stock', 'Key_Features', 'Category'
+            'discount', 'Rating'  ,'verifiedRatings', 'stock', 'Key_Features', 'Category'
         ]
         self.df_cleaned = self.df[new_column_order]
 
