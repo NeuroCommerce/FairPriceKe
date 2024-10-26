@@ -64,7 +64,7 @@ class PhoneKenyaDataCleaner:
             self.df['Status'] == 'IN STOCK', 'IN STOCK', 'SOLD OUT')
 
     def reorder_columns(self):
-        self.df['Rating'] = 'unkown'
+        self.df['rating'] = 'unkown'
         # Extract the brand from the product name
         self.df['Brand'] = self.df['productName'].apply(lambda x: x.split()[0])
 
@@ -76,7 +76,7 @@ class PhoneKenyaDataCleaner:
 
         # Reorder columns
         new_column_order = [
-            'timestamp', 'productName', 'Brand', 'PhonePlaceKenya_productLink', 'price', 'oldPrice',
+            'timestamp', 'productName', 'Brand', 'PhonePlaceKenya_productLink', 'rating', 'price', 'oldPrice',
             'discount', 'verifiedRatings', 'stock', 'Key_Features', 'Category'
         ]
         self.df_cleaned = self.df[new_column_order]
