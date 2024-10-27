@@ -29,7 +29,7 @@ def standardize_dataframes(df1, default_link="https://www.jumia.co.ke/?gad_sourc
 class ConvertDfToSQL:
     def __init__(self):
         self.user = 'root'
-        self.password = 'mmm_321478910'
+        self.password = '1234'
         self.host = 'localhost'
         self.db_name = 'FAIRPRICEKE'.lower()
 

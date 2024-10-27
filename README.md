@@ -9,7 +9,6 @@ This project implements a Shopping Assistant using a Large Language Model (LLM) 
 
 ## Requirements
 
-
 - Python 3.11+
 - Dependencies listed in `requirements.txt`
 
@@ -51,24 +50,53 @@ GEMINI_KEY=your-google-generative-ai-api-key
 
 Replace `your-google-generative-ai-api-key` with your actual API key.
 
-### 5. Prepare Data
+### 5. Data Scraping
 
-Ensure the required data files are available in the correct directories:
+## 1. Configure Database Credentials
 
-- Phone Kenya CSV file: `data/Phone Place Kenya Scraping/row/scraped_phones_with_datetime.csv`
-- Jumia JSON file: `data/Jumia/2024-10-03_all_brands_products.json`
+      Go to the modules folder and open the files scraping_and_put_in_sql.py and get_tables_details.py.
 
-Place the files in these locations or update the file paths in the `llm_bot.py` script accordingly.
+      Update the database connection details in both files:
 
-## Running the Application
+      ```bash
+      self.user = 'your_database_user'
+      self.password = 'your_database_password'
+      self.host = 'your_database_host'
+      ```
+      Replace these values with your actual database information.
 
-To run the app, use Streamlit:
+## 2. Run the Scraping Script
 
-```bash
-streamlit run llm_bot.py
-```
+      Navigate to the modules folder in your terminal.
+      Run the scraping script:
 
-This will open the app in your browser.
+      ```bash
+
+      python scraping_and_put_in_sql.py
+      ```
+
+      This step will begin scraping data and creating tables for both Jumia and Phone Kenya platforms. It also creates a history table to log updates or changes in the future.
+
+## 3. Verify Data Tables
+
+    Upon completing the scraping, the following tables should be present in your database:
+
+    Jumia table
+    Phone Kenya table
+    Jumia History table
+    Phone Kenya History table
+
+### Running the Shopping Assistant
+
+## Start the Chat Interface
+
+     To interact with the shopping assistant, run the following command in your terminal:
+
+    ```bash
+    streamlit run llm_bot.py
+    ```
+
+    This will launch a Streamlit-based user interface, allowing you to chat with the assistant and explore product data.
 
 ## How to Use
 
@@ -84,6 +112,7 @@ This will open the app in your browser.
 - The assistant responds based on the provided data, and both your inputs and the assistant’s responses will be logged in the session.
 
 ### Example Questions:
+
 - "What is the best phone available on Phone Kenya?"
 - "Which product has the largest discount on Jumia?"
 
@@ -96,6 +125,3 @@ This will open the app in your browser.
 ## Customizing the Application
 
 If you want to add more datasets or change the logic of how the assistant processes queries, you can modify the `ShoppingAssistant` or `MainClass` in the `main.py` file.
-
-
-
