@@ -16,7 +16,7 @@ class JumiaScraper:
     def save_to_file(self, results):
         # Get the current timestamp to create a unique file name
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f'D:\freelance\FairPriceKe-add_llm\FairPriceKe\FairPriceKe\data\Jumia\row\jumia_scraped_data_{self.category}_{timestamp}.json'
+        filename = rf'data\Jumia\row\jumia_scraped_data_{self.category}_{timestamp}.json'
 
         # Save the results to a JSON file
         with open(filename, 'w', encoding='utf-8') as f:
@@ -94,7 +94,11 @@ def run_scraper(category):
     )
     # Call the scrape method and get the JSON response
     result = scraper.scrape()
-    return json.dumps(result)
+    json_result = json.dumps(result)
+    # Saving the data to a JSON file
+    with open(r"data\Jumia\today_jumia_data.json", "w") as json_file:
+        json.dump(json_result, json_file, indent=4)
+    return json_result
 
 
 # Schedule the scraper to run every 24 hours
@@ -102,4 +106,5 @@ def run_scraper(category):
 
 if __name__ == "__main__":
     result = run_scraper('all')
+    
     print(json.dumps(result, indent=4))  # Print the result in a formatted way

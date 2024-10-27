@@ -238,7 +238,7 @@ class GetDataFromSQL:
                     # Append None if an error occurs
                     sql_execution_results.append(None)
 
-                print(f"Database response: {sql_execution_results}")
+                # print(f"Database response: {sql_execution_results}")
 
         finally:
             self.get_tabels_details.try_to_close_connection()
