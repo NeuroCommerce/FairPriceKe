@@ -254,7 +254,7 @@ class PhonePlaceKenyaScraping:
         self.scrape_departments()
         
         print( 'self.all_departments is ==== ' ,self.all_departments)
-        for category in [self.all_departments[0]]:
+        for category in self.all_departments[0:6]:
             try:
                 print(category["Department"], category["Link"])
                 self.scrape_phones_data(

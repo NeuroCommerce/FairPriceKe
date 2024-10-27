@@ -45,8 +45,8 @@ class MainClass:
     
         # Run the pipeline and get the final answer
         sql_execution_results , queries  = self.get_data_from_sql.run(user_question)
-        print("sql_execution_results:")
-        print(sql_execution_results)
+        # print("sql_execution_results:")
+        # print(sql_execution_results)
         print("*" *50)
         print("queries:")
         print(queries)

@@ -5,6 +5,8 @@ from get_jumia_phones_data import *
 from get_phones_kenya_data import PhonePlaceKenyaScraping
 from clean_phone_kenya_data import PhoneKenyaDataCleaner
 from clean_jumia_data import JumiaDataCleaner
+import os
+
 from sqlalchemy import create_engine, inspect
 
 
@@ -71,11 +73,13 @@ class ConvertDfToSQL:
                 f"Error appending data to history table {history_table_name}: {e}")
 
     def run(self):
-        # Scraping for PhonePlaceKenya
+        # # Scraping for PhonePlaceKenya
         ppk = PhonePlaceKenyaScraping()
         df = ppk.run()
         ppk_clean = PhoneKenyaDataCleaner(df)
         df_cleaned = ppk_clean.clean_data()
+        
+        # df_cleaned = pd.read_csv(r'data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv')
 
         # Replace old data in PhonePlaceKenya table and append to history
         self.convert(df_cleaned, 'PhonePlaceKenya'.lower(), mode='replace')
@@ -84,8 +88,11 @@ class ConvertDfToSQL:
         #############################################################
 
         # Scraping and cleaning for Jumia
-        cleaner = JumiaDataCleaner(
-            r'D:\Projects\FairPriceKe\v2\FairPriceKe\data\Jumia\2024-10-25_string_products.json')
+        # jumia_data =  run_scraper('all')
+        
+        jumia_data = os.path.join('data', 'Jumia', 'row', 'today_jumia_data.json')
+        
+        cleaner = JumiaDataCleaner(jumia_data)
         cleaned_df = cleaner.get_cleaned_data()
         cleaned_df.Key_Features = cleaned_df.Key_Features.apply(
             lambda x: json.dumps(x))
