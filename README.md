@@ -100,7 +100,7 @@ Replace `your-google-generative-ai-api-key` with your actual API key.
 
 ## Diagram
 
-![image](https://github.com/user-attachments/assets/7f8cd027-9f73-4001-9322-a77f6599022e)
+![2024-10-29 at 11 45 33_2adefd56](https://github.com/user-attachments/assets/2bf8c6ec-cf0f-4995-a27d-b7225e55810e)
 
 
 ## How to Use
