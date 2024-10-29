@@ -98,6 +98,10 @@ Replace `your-google-generative-ai-api-key` with your actual API key.
 
     This will launch a Streamlit-based user interface, allowing you to chat with the assistant and explore product data.
 
+## Diagram
+
+![Alt Text]("D:\freelance\FairPriceKe-add_llm\FairPriceKe\Flowchart.png")
+
 ## How to Use
 
 ### 1. Data Exploration
