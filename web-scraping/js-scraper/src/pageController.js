@@ -1,4 +1,5 @@
 import { JumiaScraper } from './scrapers/jumiaScraper.js';
+import { KilimallScraper } from './scrapers/kilimallScraper.js'
 // This part controls the scraping process.
 // It uses the browser instance to control the pageScraper.js file, which is
 // where all the scraping scripts execute.
@@ -10,11 +11,16 @@ async function scrapeAll (browserInstance) {
     let data = {}
 
     // Instantiate Jumiascraper
-    const jumiaScraper = new JumiaScraper(100);
-    /* const category = 'phones-tablets' */
+    /* const jumiaScraper = new JumiaScraper(100); 
     data.phones_tablets = await jumiaScraper.scrape(browser, 'phones-tablets');
+    await browser.close() */ 
+
+    
+    const kilimallScraper = new KilimallScraper(100) 
+    // Instantiate Kilimall Scraper
+    data.kilimall_phones_tablets = await kilimallScraper.scrape(browser, 'Phones & Accessories')
     await browser.close()
-    console.log(data)
+    // console.log(data)
     return data
   } catch (err) {
     console.log('Could not resolve the browser instance => ', err);
