@@ -24,7 +24,7 @@ export default class BaseScraper {
   }
 
 
-  async saveTimeSeriesCheckpoint(brandName, newData) {
+  async saveTimeSeriesCheckpoint(siteName, brandName, newData) {
 	  // Get current date
 	  const now = new Date()
 	  const year = now.getFullYear()
@@ -33,7 +33,7 @@ export default class BaseScraper {
 	  const dateString = `${year}-${month}-${day}`
 
 	  // Create brand-specific directory name
-	  const brandDir = brandName.replace(/\s+/g, '_').toLowerCase()
+	  /* const brandDir = brandName.replace(/\s+/g, '_').toLowerCase()
 
 	  // Create new filename with date
 	  const filename = `${dateString}_${brandDir}_products.json`
@@ -61,6 +61,20 @@ export default class BaseScraper {
 	  }  catch (error) {
 		  console.error(`Failed to save time series checkpoint: ${fullPath}`);
 		  console.error(error);
+	  } */
+
+	  const baseDir = 'time_series_checkpoints';
+	  const siteDir = path.join(baseDir, siteName.toLowerCase());
+	  const brandDir = path.join(siteDir, typeof brandName === 'string' ? brandName.toLowerCase() : brandName);
+	  const yearDir = path.join(brandDir, String(year));
+	  try {
+		  await fs.mkdir(yearDir, { recursive: true });
+		  const filename = `${dateString}_${typeof brandName.toLowerCase()}_products.json`;
+		  const filePath = path.join(yearDir, filename);
+		  await fs.writeFile(filePath, JSON.stringify(newData, null, 2));
+		  console.log(`Saved data for ${siteName} - ${brandName}: ${filePath}`);
+	  } catch (error) {
+		  console.error(`Error saving data for ${siteName} - ${brandName}:`, error);
 	  }
   }
 }
