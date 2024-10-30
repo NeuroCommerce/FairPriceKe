@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+venv/
+# Ignore specific images
+web-scraping/js-scraper/*.png
