@@ -19,6 +19,7 @@ export class JumiaScraper extends BaseScraper {
     ];
     const maxAllowedRequests = 200;
     this.rateLimiter = new RateLimiter(maxAllowedRequests, userRequestLimit);
+	  this.siteName = 'Jumia'
   }
 
   async makeRequest (url, options = {}) {
@@ -88,14 +89,14 @@ export class JumiaScraper extends BaseScraper {
 
         // Save checkpoint after each brand is scraped
         /* const checkpointFilename = path.join('checkpoints', `${brand.name.replace(/\s+/g, '_').toLowerCase()}_products.json`); */
-        await this.saveTimeSeriesCheckpoint(brand.name, brandData);
+        await this.saveTimeSeriesCheckpoint(this.siteName, brand.name, brandData);
         console.log(`Saved time series checkpoint for ${brand.name}`);
 
         // Add a delay between brand scrapes
         await this.delay(3000 + Math.random() * 3000); // Random between 3-6 seconds
       }
 
-      await this.saveTimeSeriesCheckpoint('all_brands', allProductData);
+      await this.saveTimeSeriesCheckpoint(this.siteName, 'all_brands', allProductData);
       console.log(`Scraped ${allProductData.length} products in total.`);
 
       return allProductData;
@@ -210,6 +211,110 @@ export class JumiaScraper extends BaseScraper {
     return scrapedData;
   }
 
+  categorizeProduct(productName, specifications) {
+    const lowerName = productName.toLowerCase();
+    
+    // Helper function to check if any keyword is in the string
+    const containsAny = (str, keywords) => keywords.some(keyword => str.includes(keyword));
+
+    // Helper function to safely check specifications
+    const checkSpecs = (specs, checkFn) => {
+      if (Array.isArray(specs)) {
+        return specs.some(checkFn);
+      } else if (typeof specs === 'object' && specs !== null) {
+        return Object.entries(specs).some(([key, value]) => checkFn({ key, value }));
+      }
+      return false;
+    };
+
+    // Define category-specific keywords and rules
+    const categories = {
+      Smartphone: {
+        nameKeywords: ['phone', 'smartphone', 'mobile', 'iphone'],
+        specRules: (specs) => checkSpecs(specs, spec => {
+          const key = spec.key.toLowerCase();
+          const value = typeof spec.value === 'string' ? spec.value.toLowerCase() : '';
+          return (key.includes('screen size') && parseFloat(value) < 7) ||
+            key.includes('sim card') ||
+            (key.includes('os') && (value.includes('android') || value.includes('ios'))) ||
+            key.includes('mobile network') ||
+            (key.includes('camera') && key.includes('mp'));
+        })
+      },
+      Tablet: {
+        nameKeywords: ['tablet', 'ipad'],
+        specRules: (specs) => checkSpecs(specs, spec => 
+          (spec.key.includes('screen size') && parseFloat(spec.value) >= 7) ||
+          spec.key.includes('tablet')
+        )
+      },
+      Laptop: {
+        nameKeywords: ['laptop', 'notebook', 'macbook'],
+        specRules: (specs) => checkSpecs(specs, spec => 
+          spec.key.includes('processor') ||
+          spec.key.includes('graphics card') ||
+          (spec.key.includes('screen size') && parseFloat(spec.value) > 11)
+        )
+      },
+      Audio: {
+        nameKeywords: ['earbuds', 'headphone', 'earphone', 'airpods'],
+        specRules: (specs) => checkSpecs(specs, spec => 
+          spec.key.includes('bluetooth') ||
+          spec.key.includes('wireless') ||
+          spec.key.includes('battery life') ||
+          spec.key.includes('driver size')
+        )
+      },
+
+      Wearable: {
+        nameKeywords: ['watch', 'smartwatch', 'fitness tracker', 'band', 'wear'],
+        specRules: (specs) => checkSpecs(specs, spec => {
+          const key = spec.key.toLowerCase();
+          const value = typeof spec.value === 'string' ? spec.value.toLowerCase() : '';
+          return key.includes('heart rate') ||
+            key.includes('step counter') ||
+            key.includes('water resistant') ||
+            (key.includes('display') && value.includes('always on')) ||
+            key.includes('fitness tracking') ||
+            (key.includes('os') && value.includes('wear os')) ||
+            (key.includes('battery') && value.includes('mah'));
+        })
+      },
+      Camera: {
+        nameKeywords: ['camera', 'dslr', 'mirrorless'],
+        specRules: (specs) => checkSpecs(specs, spec => 
+          spec.key.includes('megapixels') ||
+          spec.key.includes('optical zoom') ||
+          spec.key.includes('sensor type')
+        )
+      },
+
+      Television: {
+        nameKeywords: ['tv', 'television', 'smart tv', 'uhd', '4k'],
+        specRules: (specs) => checkSpecs(specs, spec => {
+          const key = spec.key.toLowerCase();
+          const value = typeof spec.value === 'string' ? spec.value.toLowerCase() : '';
+          return key.includes('screen size') && parseFloat(value) >= 32 ||
+            key.includes('resolution') && (value.includes('4k') || value.includes('uhd')) ||
+            key.includes('hdmi') ||
+            key.includes('smart tv') ||
+            (key.includes('tv') && !key.includes('tv box'));
+        })
+      },
+    }
+
+      // Check each category
+      for (const [category, rules] of Object.entries(categories)) {
+        if (containsAny(lowerName, rules.nameKeywords) || rules.specRules(specifications)) {
+          return category;
+        }
+      }
+
+      // If no category matches, return 'Other'
+      return 'Other';
+    }
+
+
   async scrapeProductPage (browser, url) {
     const newPage = await browser.newPage();
     // Set  a random user agent for each product page
@@ -258,6 +363,10 @@ export class JumiaScraper extends BaseScraper {
 	getAllProductImages.toString(),
 	getSpecification.toString()
       );
+      
+      dataObj.productUrl = url
+
+	    dataObj.category = this.categorizeProduct(dataObj.productName, dataObj.specifications)
 
       // Scrape customer feedback
       try {
