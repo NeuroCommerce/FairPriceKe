@@ -100,7 +100,8 @@ Replace `your-google-generative-ai-api-key` with your actual API key.
 
 ## Diagram
 
-![Alt Text]("D:\freelance\FairPriceKe-add_llm\FairPriceKe\Flowchart.png")
+![2024-10-29 at 11 45 33_2adefd56](https://github.com/user-attachments/assets/2bf8c6ec-cf0f-4995-a27d-b7225e55810e)
+
 
 ## How to Use
 
