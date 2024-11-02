@@ -4,7 +4,7 @@ from langchain.chains import LLMChain
 from pydantic import BaseModel
 import pandas as pd
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from .clean_jumia_data import JumiaDataCleaner
 from .clean_phone_kenya_data import PhoneKenyaDataCleaner
 
@@ -165,10 +165,11 @@ class ShoppingAssistant:
 
 
 if __name__ == "__main__":
-    load_dotenv()  # Load environment variables
-    google_api_key = os.getenv("GEMINI_KEY")  # Load API key from environment
+    # load_dotenv()  # Load environment variables
+    # Load API key from environment
+    google_api_key = "AIzaSyDDDvUITqs1D7USHvBrZVuBYnMJnFvI1_g"
     llm = GoogleGenerativeAI(
-        model="gemini-1.5-flash-latest", google_api_key=google_api_key, temperature=0)
+        model="gemini-1.5-flash-8b", google_api_key=google_api_key, temperature=0)
 
     # Initialize the ShoppingAssistant with verbosity
     shopping_assistant = ShoppingAssistant(llm=llm, verbose=1)

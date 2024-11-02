@@ -7,8 +7,8 @@ from langchain.chains import LLMChain
 from langchain_core.output_parsers import StrOutputParser
 from sqlalchemy import text
 import pandas as pd
-from .get_tables_details import GetTabelsDetails
-from dotenv import load_dotenv
+# from .get_tables_details import GetTabelsDetails
+# from dotenv import load_dotenv
 from .get_data_from_sql import GetDataFromSQL
 
 
@@ -149,7 +149,7 @@ class Responsewrapper:
 # Usage Example
 if __name__ == "__main__":
     # Initialize LLM with a Google API key
-    load_dotenv()
+    # load_dotenv()
     genini_key = os.getenv("GEMINI_KEY")
 
     llm = GoogleGenerativeAI(
