@@ -81,7 +81,7 @@ class GetDataFromSQL:
                     'Jumia' AS platform
                 FROM jumia
                 WHERE
-                    ("Brand" = 'Oppo' AND Category = 'Smart Phones') OR ('Brand' = 'Tecno' AND Category = 'Smart Phones')
+                    ("Brand" = 'Oppo' AND "Category" = 'Smart Phones') OR ('Brand' = 'Tecno' AND "Category" = 'Smart Phones')
 
                 UNION ALL
 
@@ -100,7 +100,6 @@ class GetDataFromSQL:
                     ("Brand" = 'Oppo' AND "Category" = 'Oppo') OR ("Brand" = 'Samsung' AND "Category" = 'Samsung Phones')
                 ```
 
-                IMPORTANT: please don't put the Category column in double quotes in jumia queries only
                 
                 
                 IMPORTANT: please use the (verifiedRatings) column in your queries

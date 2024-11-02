@@ -27,13 +27,37 @@ class ConvertDfToSQL:
         self.user = 'postgres'
         self.password = '1234'
         self.host = 'localhost'
-        self.port = '5432'
+        self.port = '1234'
         self.db_name = 'fairpriceke'
 
         # Create the initial engine to connect to the PostgreSQL server
         self.engine = create_engine(
-            f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/postgres')
+            f'postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/postgres')
         self.create_database()
+
+    def rename_column(self):
+        # Open the connection
+        connection = self.engine.connect()
+
+        try:
+            # Define the query to rename the column
+            query_product_name = """
+                ALTER TABLE jumia RENAME COLUMN Category TO "Category";
+            """
+
+            # Execute the query directly using connection.execute
+            connection.execute(text(query_product_name))
+
+            # Print confirmation instead of attempting to read a result set
+            print(f"Column 'Category' renamed successfully in database '{
+                  self.db_name}'.")
+
+        except Exception as e:
+            print("An error occurred while renaming the column:", e)
+
+        finally:
+            # Close the connection to avoid resource leaks
+            connection.close()
 
     def create_database(self):
         try:
@@ -45,7 +69,7 @@ class ConvertDfToSQL:
 
             # Reconfigure the engine to connect to the newly created database
             self.engine = create_engine(
-                f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.db_name}')
+                f'postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.db_name}')
         except sqlalchemy.exc.SQLAlchemyError as e:
             print(f"Error creating database: {e}")
 
@@ -92,6 +116,7 @@ class ConvertDfToSQL:
         # Insert cleaned Jumia data
         self.convert(cleaned_df, 'jumia', mode='replace')
         self.append_to_history(cleaned_df, 'jumia_history')
+        self.rename_column()
 
 
 if __name__ == "__main__":
