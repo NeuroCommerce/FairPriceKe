@@ -252,9 +252,9 @@ class PhonePlaceKenyaScraping:
 
     def run(self):
         self.scrape_departments()
-        
-        print( 'self.all_departments is ==== ' ,self.all_departments)
-        for category in self.all_departments[0:6]:
+
+        print('self.all_departments is ==== ', self.all_departments)
+        for category in self.all_departments:
             try:
                 print(category["Department"], category["Link"])
                 self.scrape_phones_data(
@@ -264,8 +264,9 @@ class PhonePlaceKenyaScraping:
 
         final_df = self.reorder_columns()
         self.close_driver()
-        
-        self.save_data_to_csv(final_df , r'data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime2.csv' )
+
+        self.save_data_to_csv(
+            final_df, r'data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime2.csv')
         return final_df
 
 
