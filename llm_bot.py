@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from langchain_google_genai import GoogleGenerativeAI
 from modules.shopping_assistant_llm import ShoppingAssistant
 from modules.clean_jumia_data import JumiaDataCleaner
@@ -11,8 +11,9 @@ from main import MainClass
 
 
 def main():
-    load_dotenv()  # Load environment variables
-    google_api_key = os.getenv("GEMINI_KEY")  # Load API key from environment
+    # load_dotenv()  # Load environment variables
+    # Load API key from environment
+    google_api_key = "AIzaSyDDDvUITqs1D7USHvBrZVuBYnMJnFvI1_g"
 
     st.title("Shopping Assistant LLM")
 
@@ -23,9 +24,11 @@ def main():
     # Paths to the datasets
     # For Phone Kenya data (CSV)
     # phone_kenya_csv_path = fr"{os.path.join('data', 'Phone Place Kenya Scraping', 'row', 'scraped_phones_with_datetime.csv')}"
-    jumia_json_path = os.path.join('data', 'Jumia', 'row', 'today_jumia_data.json')
-    
-    phone_kenya_csv_path = os.path.join('data', 'Phone Place Kenya Scraping', 'cleaned', 'phone_place_kenya.csv')
+    jumia_json_path = os.path.join(
+        'data', 'Jumia', 'row', 'today_jumia_data.json')
+
+    phone_kenya_csv_path = os.path.join(
+        'data', 'Phone Place Kenya Scraping', 'cleaned', 'phone_place_kenya.csv')
     # For Jumia data (JSON)
     # jumia_json_path = os.path.join(
     #     'data', 'Jumia', '2024-10-03_all_brands_products.json')
@@ -92,7 +95,8 @@ def main():
             alignment = "right" if is_arabic else "left"
             with st.chat_message(message["role"]):
                 st.markdown(
-                    f"<div style='text-align: {alignment};'>{message['content']}</div>",
+                    f"<div style='text-align: {alignment};'>{
+                        message['content']}</div>",
                     unsafe_allow_html=True
                 )
 

@@ -1,144 +1,143 @@
-
 import sqlalchemy
-from sqlalchemy import text  # Import text for executing raw SQL
-from sqlalchemy import create_engine, inspect
+from sqlalchemy import text, inspect
 from sqlalchemy.orm import sessionmaker
-
-
+import psycopg  # Adjusted for compatibility with SQLAlchemy
 import pandas as pd
 
 
-class GetTabelsDetails:
+class GetTablesDetails:
     def __init__(self):
-        self.user = 'root'
+        self.user = 'postgres'
         self.password = '1234'
         self.host = 'localhost'
-        self.db_name = 'FAIRPRICEKE'.lower()
-   
-        # Create engine without specifying the database to create it if necessary
+        self.db_name = 'fairpriceke'
+        self.port = '1234'  # Ensure the port is correctly specified
+
+        # Check and create the database if it does not exist
+        self.check_and_create_database()
+
+        # Create an engine now pointing to the specific database
         self.engine = sqlalchemy.create_engine(
-                f'mysql+pymysql://{self.user}:{self.password}@{self.host}/{self.db_name}'
-                ) 
-        
+            f'postgresql+psycopg://{self.user}:{self.password}@{
+                self.host}:{self.port}/{self.db_name}'
+        )
         self.chatbot_Session = sessionmaker(bind=self.engine)
 
+    def check_and_create_database(self):
+        # Connect to the default database to check for `fairpriceke`
+        conn = psycopg.connect(
+            dbname="postgres", user=self.user, password=self.password, host=self.host, port=self.port
+        )
+        conn.autocommit = True
+        cursor = conn.cursor()
 
+        # Check if the database exists
+        cursor.execute(f"SELECT 1 FROM pg_database WHERE datname = '{
+                       self.db_name}';")
+        exists = cursor.fetchone()
+
+        if not exists:
+            # Database does not exist, so create it
+            cursor.execute(
+                f"CREATE DATABASE {self.db_name} "
+                "WITH OWNER = postgres ENCODING = 'UTF8' CONNECTION LIMIT = -1;"
+            )
+            print(f"Database '{self.db_name}' created successfully.")
+        else:
+            print(f"Database '{self.db_name}' already exists.")
+
+        cursor.close()
+        conn.close()
 
     def create_chatbot_database_session(self):
         session = self.chatbot_Session()
         return session
-    
-    def try_to_close_connection(self):
-        try:
-            self.chatbot_Session.close()
-        except:
-            pass
-    
-    def analyze_jumia_table(self):
-        # # Create a connection to the database
-        # engine = sqlalchemy.create_engine(
-        #     f'mysql+pymysql://{self.user}:{self.password}@{self.host}/{self.db_name}')
-       # Create a connection to the database
-        connection = self.engine.connect()
 
+    def analyze_jumia_table(self):
+        connection = self.engine.connect()
         try:
-            # 1. Get table structure using SQLAlchemy's inspector
             inspector = inspect(self.engine)
             table_name = 'jumia'
             columns = inspector.get_columns(table_name)
 
-            # Create a formatted string representing the table structure
+            # Structure output
             table_structure = "jumia Table Structure:\n"
             for col in columns:
                 table_structure += f"{col['name']}: {col['type']}\n"
 
-            # 2. Get unique brand names grouped by category
             query_product_name = """
-            SELECT Category, GROUP_CONCAT(DISTINCT Brand ORDER BY Brand SEPARATOR ', ') AS Brand
-            FROM jumia
-            GROUP BY Category
-            ORDER BY Category;
-            """
+            SELECT 
+            Category, 
+            STRING_AGG(DISTINCT "Brand", ', ' ORDER BY "Brand") AS Brand
+            FROM 
+            jumia
+            GROUP BY 
+            Category
+            ORDER BY 
+            Category;
 
-            # Execute the query and load data into a DataFrame
+            """
             data = pd.read_sql(text(query_product_name), connection)
 
-            # Format the results in the specified format
             result = ""
             for category, terms in data.itertuples(index=False):
                 terms_list = terms.split(", ")
                 result += f"Category {category} includes:\n"
                 for term in terms_list:
                     result += f"    - {term}\n"
-                result += "\n"  # Add a newline between categories
-                
+                result += "\n"
 
-            
-            return table_structure , result
+            return table_structure, result
 
         finally:
-            # Close the connection
             connection.close()
 
-
     def get_phone_place_kenya_data(self):
-        # Create engine to connect to the MySQL database
-        # engine = sqlalchemy.create_engine(
-        #     f'mysql+pymysql://{self.user}:{self.password}@{self.host}/{self.db_name}')
-
-        
-        
-        # Open a connection to the database
         connection = self.engine.connect()
         try:
-            # Use SQLAlchemy inspector to get the table structure
             inspector = inspect(self.engine)
             table_name = 'phoneplacekenya'
             columns = inspector.get_columns(table_name)
 
-            # Create a formatted string representing the table structure
             table_structure = "phoneplacekenya Table Structure:\n"
             for col in columns:
                 table_structure += f"{col['name']}: {col['type']}\n"
-                
-            query_product_name = """
-            SELECT Category, GROUP_CONCAT(DISTINCT Brand ORDER BY Brand SEPARATOR ', ') AS Brand
-            FROM phoneplacekenya
-            GROUP BY Category
-            ORDER BY Category;
-            """
 
-            # Execute the query and load data into a DataFrame
+            query_product_name = """
+            SELECT 
+    "Category", 
+    STRING_AGG(DISTINCT "Brand", ', ' ORDER BY "Brand") AS Brand
+FROM 
+    phoneplacekenya
+GROUP BY 
+    "Category"
+ORDER BY 
+    "Category";
+
+            """
             data = pd.read_sql(text(query_product_name), connection)
 
-            # Format the results in the specified format
             result = ""
             for category, terms in data.itertuples(index=False):
                 terms_list = terms.split(", ")
-                result += f"Category {category} incloud:\n"
+                result += f"Category {category} includes:\n"
                 for term in terms_list:
                     result += f"    - {term}\n"
-                result += "\n"  # Add a newline between categories
-            
-            # Return the table structure
-            return table_structure , result
+                result += "\n"
+
+            return table_structure, result
 
         finally:
-            # Close the connection after processing
             connection.close()
-    
+
 
 if __name__ == "__main__":
-    # Create an instance of GetTabelsDetails class
-    obj = GetTabelsDetails()
-    
-    # Analyze Jumia table
-    jumia_table_report  , df_product_name= obj.analyze_jumia_table()
-    print('jumia_table_report == ' , jumia_table_report)
-    print( df_product_name)
-    
-    
-    # Get Phone Place Kenya data
-    phone_place_kenya_data , res = obj.get_phone_place_kenya_data()
-    print( 'phone_place_kenya_data = ' ,phone_place_kenya_data)
-    print( res)
+    obj = GetTablesDetails()
+
+    jumia_table_report, df_product_name = obj.analyze_jumia_table()
+    print('Jumia Table Report:\n', jumia_table_report)
+    print(df_product_name)
+
+    phone_place_kenya_data, res = obj.get_phone_place_kenya_data()
+    print('PhonePlaceKenya Table Structure:\n', phone_place_kenya_data)
+    print(res)
