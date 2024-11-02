@@ -10,15 +10,17 @@ import pandas as pd
 
 class GetTabelsDetails:
     def __init__(self):
-        self.user = 'root'
-        self.password = 'mmm_321478910'
+        self.user = 'postgres'
+        self.password = '1234'
         self.host = 'localhost'
-        self.db_name = 'FAIRPRICEKE'.lower()
-   
-        # Create engine without specifying the database to create it if necessary
+        self.port = 5432    # Specify your PostgreSQL port here
+        self.db_name = 'fairpriceke'
+
+        # Create engine for PostgreSQL with specified port
         self.engine = sqlalchemy.create_engine(
-                f'mysql+pymysql://{self.user}:{self.password}@{self.host}/{self.db_name}'
-                ) 
+            f'postgresql+psycopg://{self.user}:{
+                self.password}@{self.host}:{self.port}'
+        )
         
         self.chatbot_Session = sessionmaker(bind=self.engine)
 
