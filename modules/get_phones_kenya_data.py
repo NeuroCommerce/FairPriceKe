@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from datetime import datetime
+import os
 
 
 class PhonePlaceKenyaScraping:
@@ -264,8 +265,8 @@ class PhonePlaceKenyaScraping:
 
         final_df = self.reorder_columns()
         self.close_driver()
-        
-        self.save_data_to_csv(final_df , r'data\Phone Place Kenya Scraping\row\scraped_phones_with_datetime2.csv' )
+        save_data = os.path.join('data', 'Phone Place Kenya Scraping', 'row', 'scraped_phones_with_datetime2.csv')
+        self.save_data_to_csv(final_df ,save_data )
         return final_df
 
 
