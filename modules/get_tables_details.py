@@ -1,7 +1,7 @@
 import sqlalchemy
 from sqlalchemy import text, inspect
 from sqlalchemy.orm import sessionmaker
-import psycopg  # Adjusted for compatibility with SQLAlchemy
+import psycopg2  # Adjusted for compatibility with SQLAlchemy
 import pandas as pd
 from sqlalchemy import text
 
@@ -12,14 +12,14 @@ class GetTablesDetails:
         self.password = '1234'
         self.host = 'localhost'
         self.db_name = 'fairpriceke'
-        self.port = '1234'  # Ensure the port is correctly specified
+        self.port = '5432'  # Ensure the port is correctly specified
 
         # Check and create the database if it does not exist
         self.check_and_create_database()
 
         # Create an engine now pointing to the specific database
         self.engine = sqlalchemy.create_engine(
-            f'postgresql+psycopg://{self.user}:{self.password}@{
+            f'postgresql+psycopg2://{self.user}:{self.password}@{
                 self.host}:{self.port}/{self.db_name}'
         )
         # self.rename_column()
@@ -29,7 +29,7 @@ class GetTablesDetails:
 
     def check_and_create_database(self):
         # Connect to the default database to check for `fairpriceke`
-        conn = psycopg.connect(
+        conn = psycopg2.connect(
             dbname="postgres", user=self.user, password=self.password, host=self.host, port=self.port
         )
         conn.autocommit = True
@@ -71,14 +71,14 @@ class GetTablesDetails:
 
             query_product_name = """
             SELECT 
-            "Category", 
-            STRING_AGG(DISTINCT "Brand", ', ' ORDER BY "Brand") AS Brand
+                Category, 
+                STRING_AGG(DISTINCT "Brand", ', ' ORDER BY "Brand") AS Brand
             FROM 
-            jumia
+                jumia
             GROUP BY 
-            "Category"
+                Category
             ORDER BY 
-            "Category";
+                Category;
 
             """
             data = pd.read_sql(text(query_product_name), connection)

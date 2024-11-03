@@ -2,9 +2,9 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine, text
 from get_jumia_phones_data import *
-from .get_phones_kenya_data import PhonePlaceKenyaScraping
-from .clean_phone_kenya_data import PhoneKenyaDataCleaner
-from .clean_jumia_data import JumiaDataCleaner
+from get_phones_kenya_data import PhonePlaceKenyaScraping
+from clean_phone_kenya_data import PhoneKenyaDataCleaner
+from clean_jumia_data import JumiaDataCleaner
 import os
 import json
 
@@ -27,12 +27,12 @@ class ConvertDfToSQL:
         self.user = 'postgres'
         self.password = '1234'
         self.host = 'localhost'
-        self.port = '1234'
+        self.port = '5432'
         self.db_name = 'fairpriceke'
 
         # Create the initial engine to connect to the PostgreSQL server
         self.engine = create_engine(
-            f'postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/postgres')
+            f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/postgres')
         self.create_database()
 
     def rename_column(self):
@@ -69,7 +69,7 @@ class ConvertDfToSQL:
 
             # Reconfigure the engine to connect to the newly created database
             self.engine = create_engine(
-                f'postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.db_name}')
+                f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.db_name}')
         except sqlalchemy.exc.SQLAlchemyError as e:
             print(f"Error creating database: {e}")
 
@@ -116,7 +116,7 @@ class ConvertDfToSQL:
         # Insert cleaned Jumia data
         self.convert(cleaned_df, 'jumia', mode='replace')
         self.append_to_history(cleaned_df, 'jumia_history')
-        self.rename_column()
+        # self.rename_column()
 
 
 if __name__ == "__main__":

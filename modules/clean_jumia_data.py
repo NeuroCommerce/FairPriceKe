@@ -16,8 +16,9 @@ class JumiaDataCleaner:
 
     def clean_data(self):
         # Select relevant columns
+        self.df.rename(columns={'category': 'Category'}, inplace=True)
         self.df = self.df[['productName', 'productUrl' ,'price', 'oldPrice', 'discount', 'rating',
-                            'verifiedRatings', 'stock', 'specifications','category' ,'timestamp' ]]
+                            'verifiedRatings', 'stock', 'specifications','Category' ,'timestamp' ]]
 
         # Convert 'timestamp' column to datetime format
         self.df['timestamp'] = pd.to_datetime(self.df['timestamp'], errors='coerce')
@@ -74,7 +75,7 @@ class JumiaDataCleaner:
         new_column_order = [
             'timestamp', 'productName', 'Brand','jumia_productLink' ,'price', 'oldPrice',
             'discount', 'rating', 'verifiedRatings',
-            'stock', 'Key_Features', 'category'
+            'stock', 'Key_Features', 'Category'
         ]
         self.df = self.df[new_column_order]
 
