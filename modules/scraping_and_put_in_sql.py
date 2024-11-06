@@ -2,9 +2,9 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine, text
 from get_jumia_phones_data import *
-from .get_phones_kenya_data import PhonePlaceKenyaScraping
-from .clean_phone_kenya_data import PhoneKenyaDataCleaner
-from .clean_jumia_data import JumiaDataCleaner
+from get_phones_kenya_data import PhonePlaceKenyaScraping
+from clean_phone_kenya_data import PhoneKenyaDataCleaner
+from clean_jumia_data import JumiaDataCleaner
 import os
 import json
 
@@ -27,12 +27,12 @@ class ConvertDfToSQL:
         self.user = 'postgres'
         self.password = '1234'
         self.host = 'localhost'
-        self.port = '1234'
+        self.port = '5432'
         self.db_name = 'fairpriceke'
 
         # Create the initial engine to connect to the PostgreSQL server
         self.engine = create_engine(
-            f'postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/postgres')
+            f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/postgres')
         self.create_database()
 
     def rename_column(self):
@@ -49,8 +49,7 @@ class ConvertDfToSQL:
             connection.execute(text(query_product_name))
 
             # Print confirmation instead of attempting to read a result set
-            print(f"Column 'Category' renamed successfully in database '{
-                  self.db_name}'.")
+            print(f"Column 'Category' renamed successfully in database '{self.db_name}'.")
 
         except Exception as e:
             print("An error occurred while renaming the column:", e)
@@ -63,13 +62,13 @@ class ConvertDfToSQL:
         try:
             # Use AUTOCOMMIT to avoid transaction block issues
             with self.engine.connect().execution_options(isolation_level="AUTOCOMMIT") as conn:
-                conn.execute(text(f"CREATE DATABASE {self.db_name} WITH OWNER = {
-                             self.user} ENCODING = 'UTF8' CONNECTION LIMIT = -1"))
+                conn.execute(text(f"""CREATE DATABASE {self.db_name} WITH OWNER = {
+                             self.user} ENCODING = 'UTF8' CONNECTION LIMIT = -1"""))
             print(f"Database {self.db_name} created successfully.")
 
             # Reconfigure the engine to connect to the newly created database
             self.engine = create_engine(
-                f'postgresql+psycopg://{self.user}:{self.password}@{self.host}:{self.port}/{self.db_name}')
+                f'postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.db_name}')
         except sqlalchemy.exc.SQLAlchemyError as e:
             print(f"Error creating database: {e}")
 
@@ -86,17 +85,17 @@ class ConvertDfToSQL:
                       if_exists='append', index=False)
             print(f"Data appended to history table {history_table_name}")
         except sqlalchemy.exc.SQLAlchemyError as e:
-            print(f"Error appending data to history table {
-                  history_table_name}: {e}")
+            print(f"""Error appending data to history table {
+                  history_table_name}: {e}""")
 
     def run(self):
         # Get data from PhonePlaceKenya and clean it
-        # ppk = PhonePlaceKenyaScraping()
-        # df = ppk.run()
-        # ppk_clean = PhoneKenyaDataCleaner(df)
-        # df_cleaned = ppk_clean.clean_data()
-        df_cleaned = pd.read_csv(
-            r"data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv")
+        ppk = PhonePlaceKenyaScraping()
+        df = ppk.run()
+        ppk_clean = PhoneKenyaDataCleaner(df)
+        df_cleaned = ppk_clean.clean_data()
+        # df_cleaned = pd.read_csv(
+        #     r"data\Phone Place Kenya Scraping\cleaned\phone_place_kenya.csv")
 
         # Insert cleaned PhonePlaceKenya data
         self.convert(df_cleaned, 'phoneplacekenya', mode='replace')
@@ -116,7 +115,7 @@ class ConvertDfToSQL:
         # Insert cleaned Jumia data
         self.convert(cleaned_df, 'jumia', mode='replace')
         self.append_to_history(cleaned_df, 'jumia_history')
-        self.rename_column()
+        # self.rename_column()
 
 
 if __name__ == "__main__":

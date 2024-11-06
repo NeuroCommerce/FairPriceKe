@@ -108,6 +108,12 @@ class GetDataFromSQL:
                 **Note**: Avoid using `ORDER BY` in each SELECT statement in the `UNION ALL` operation; apply `ORDER BY` only after combining the results.
 
 
+                
+                IMPORTANT: IF the user question is like, Hello, hi , good morning, or how can you help me please  give my a query generator None like this :
+                ```sql
+                SELECT COALESCE( 'None' , 'None') AS column_name
+                FROM jumia;
+                ```
                 USER QUESTION: {question}
 
         """
