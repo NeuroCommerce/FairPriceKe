@@ -17,7 +17,7 @@ class JumiaDataCleaner:
     def clean_data(self):
         # Select relevant columns
         self.df = self.df[['productName', 'productUrl' ,'price', 'oldPrice', 'discount', 'rating',
-                            'verifiedRatings', 'stock', 'specifications','Category' ,'timestamp' ]]
+                            'verifiedRatings', 'stock', 'specifications','category' ,'timestamp' ]]
 
         # Convert 'timestamp' column to datetime format
         self.df['timestamp'] = pd.to_datetime(self.df['timestamp'], errors='coerce')

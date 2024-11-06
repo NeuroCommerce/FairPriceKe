@@ -83,8 +83,7 @@ class Responsewrapper:
                 -  Should scan current promotions across various e-commerce platforms, identify any active deals or discounts for brand X products, AND present a SUMMARY of the most relevant and valuable offers.
 
         
-                IMPORTANT: IF the user question is like, Hello, hi , good morning, or how can you help me please answer a friendly response like this: 
-                            Hello and welcome! 😊 I’m here to help you find the best deals on products across Kenyan e-commerce platforms. Just let me know if you’re looking for something specific 
+                IMPORTANT: IF the user question is like, Hello, hi , good morning, or how can you help me please answer a friendly response. 
                                 
         Below are the original SQL queries generated based on the user's question, as well as the results from executing those queries.
 
